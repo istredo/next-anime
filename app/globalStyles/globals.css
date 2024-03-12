@@ -1,0 +1,21 @@
+:root {
+	background-color: #282c33;
+	color: #fff;
+}
+.container {
+	max-width: 1535px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+.btn-reset {
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+	background-color: transparent;
+	border: none;
+}
+.list-reset {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
