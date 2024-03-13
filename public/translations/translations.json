@@ -1,12 +1,15 @@
 {
-	"ru": {
-		"header":{
-			"menu_btn": "Меню"
-		}
-	},
 	"en": {
 		"header":{
-			"menu_btn": "Menu"
+			"menu_btn": "Menu",
+			"siteName": "Your site name"
+		}
+	},
+	"ru": {
+		"header":{
+			"menu_btn": "Меню",
+			"siteName": "Название сайта"
 		}
 	}
+	
 }

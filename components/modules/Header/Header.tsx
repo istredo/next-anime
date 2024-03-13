@@ -3,17 +3,26 @@ import Logo from "@/components/Logo"
 import { useLang } from "@/hooks/useLang"
 import Link from "next/link"
 import '@/app/globalStyles/header.css'
+import Menu from "./Menu"
+import { showMenu } from "@/ctx/modal"
+import { addOverflowBody } from "@/lib/utils/commonFunc"
 
 const Header = () => {
 	const { lang, translations } = useLang()
+
+	const menuHandler = () => {
+		addOverflowBody()
+		showMenu()
+	}
 	return (
 
 		<header className="header" >
 			<div className="container header__container">
-				<button className="header__burger btn-reset">
+				<button className="header__burger btn-reset" onClick={menuHandler}>
 					{translations[lang].header.menu_btn}
 				</button>
-				<div className="header_logo"><Logo /> Your site name</div>
+				<Menu />
+				<div className="header_logo"><Logo />  {translations[lang].header.siteName}</div>
 				<ul className="header__links list-reset">
 
 					<li className='header__links__item'>
@@ -21,10 +30,10 @@ const Header = () => {
 							className='btn-reset header__links__item__btn header__links__item__btn--search'
 						/>
 					</li>
-					<li><Link href='/favorites' className="header__links__item__btn header__links__item__btn--favorites" /></li>
-					<li><Link href='/compare' className="header__links__item__btn header__links__item__btn--compare" /></li>
-					<li><Link href='/cart' className="header__links__item__btn header__links__item__btn--cart" /></li>
-					<li><Link href='/profile' className="header__links__item__btn header__links__item__btn--profile" /></li>
+					<li className='header__links__item'><Link href='/favorites' className="header__links__item__btn header__links__item__btn--favorites" /></li>
+					<li className='header__links__item'><Link href='/compare' className="header__links__item__btn header__links__item__btn--compare" /></li>
+					<li className='header__links__item'><Link href='/cart' className="header__links__item__btn header__links__item__btn--cart" /></li>
+					<li className='header__links__item header__links__item--profile'><Link href='/profile' className="header__links__item__btn header__links__item__btn--profile" /></li>
 				</ul>
 			</div>
 		</header>

@@ -1,9 +1,10 @@
 .header {
+	border-bottom: 1px solid white;
 }
 .header__container {
 	display: flex;
 	height: 60px;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
 }
 .header__burger {
@@ -39,6 +40,9 @@
 .header__burger:hover {
 	color: green;
 	transition: 0.2s ease-in-out color;
+}
+.header__links__item:not(:last-child) {
+	margin-right: 32px;
 }
 .header__links__item__btn {
 	width: 24px;
@@ -81,4 +85,33 @@
 .header__links__item__btn--profile {
 	-webkit-masl: url(/img/profile.svg) no-repeat 50% 50%;
 	mask: url(/img/profile.svg) no-repeat 50% 50%;
+}
+
+.header__links__item--profile {
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+@media (max-width: 800px) {
+	.header__logo {
+		left: 15px;
+		transform: translateX(0);
+	}
+
+	.header__container {
+		margin: 0 20px;
+		padding: 14px 0;
+	}
+
+	.header__links__item:nth-child(n + 2):nth-child(-n + 4) {
+		display: none;
+	}
+
+	.header__burger {
+		display: none;
+	}
+
+	.header__links__item:not(:last-child) {
+		margin-right: 18px;
+	}
 }
