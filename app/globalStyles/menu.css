@@ -215,7 +215,7 @@
 .nav-menu__accordion__item:first-child .nav-menu__accordion__item__title::before {
 	content: "";
 	position: absolute;
-	background-image: url(/img/menu-line.svg);
+	background-image: url(/img/menu-target.svg);
 	background-repeat: no-repeat;
 	background-position: center center;
 	width: 224px;
@@ -255,7 +255,7 @@
 }
 
 .nav-menu__accordion__item__list__item__link:hover {
-	color: #9466ff;
+	color: green;
 	transition: 0.2s ease-in-out color;
 }
 
@@ -273,7 +273,7 @@
 
 @media (max-width: 800px) {
 	.nav-menu__accordion__item:first-child .nav-menu__accordion__item__title::before {
-		background-image: url(/img/menu-line-small.svg);
+		background-image: url(/img/menu-target-sm.svg);
 		left: -200px;
 	}
 

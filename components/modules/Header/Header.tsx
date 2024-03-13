@@ -22,7 +22,10 @@ const Header = () => {
 					{translations[lang].header.menu_btn}
 				</button>
 				<Menu />
-				<div className="header_logo"><Logo />  {translations[lang].header.siteName}</div>
+				<div className="header_logo">
+					<Logo />
+					{translations[lang].header.siteName}
+				</div>
 				<ul className="header__links list-reset">
 
 					<li className='header__links__item'>
