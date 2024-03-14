@@ -1,19 +1,25 @@
 'use client'
+import Link from "next/link"
 import Logo from "@/components/Logo"
 import { useLang } from "@/hooks/useLang"
-import Link from "next/link"
 import '@/app/globalStyles/header.css'
 import Menu from "./Menu"
-import { showMenu } from "@/ctx/modal"
+import { showMenu, showModalSearch } from "@/ctx/modal"
 import { addOverflowBody } from "@/lib/utils/commonFunc"
+
 
 const Header = () => {
 	const { lang, translations } = useLang()
-
 	const menuHandler = () => {
 		addOverflowBody()
 		showMenu()
 	}
+
+	const searchHandler = () => {
+		addOverflowBody()
+		showModalSearch()
+	}
+
 	return (
 
 		<header className="header" >
@@ -27,11 +33,9 @@ const Header = () => {
 					{translations[lang].header.siteName}
 				</div>
 				<ul className="header__links list-reset">
-
 					<li className='header__links__item'>
-						<button
-							className='btn-reset header__links__item__btn header__links__item__btn--search'
-						/>
+						<button className='btn-reset header__links__item__btn header__links__item__btn--search'
+							onClick={searchHandler} />
 					</li>
 					<li className='header__links__item'><Link href='/favorites' className="header__links__item__btn header__links__item__btn--favorites" /></li>
 					<li className='header__links__item'><Link href='/compare' className="header__links__item__btn header__links__item__btn--compare" /></li>
