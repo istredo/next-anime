@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { useStore } from 'effector-react'
+import { useUnit } from 'effector-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 
@@ -15,7 +15,7 @@ import CatalogMenuList from './CatalogMenuList'
 import { removeOverflowBody } from '@/lib/utils/commonFunc'
 
 const CatalogMenu = () => {
-	const openModal = useStore($modalCatalog)
+	const openModal = useUnit($modalCatalog)
 	const [firstVisible, setFirstVisible] = React.useState(false)
 	const [secondVisible, setSecondVisible] = React.useState(false)
 	const [thirdVisible, setThirdVisible] = React.useState(false)

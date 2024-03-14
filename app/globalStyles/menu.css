@@ -220,7 +220,7 @@
 	background-position: center center;
 	width: 224px;
 	height: 2px;
-	top: 10px;
+	top: 9px;
 	left: -250px;
 }
 
@@ -275,6 +275,7 @@
 	.nav-menu__accordion__item:first-child .nav-menu__accordion__item__title::before {
 		background-image: url(/img/menu-target-sm.svg);
 		left: -200px;
+		top: 8px;
 	}
 
 	.nav-menu__bg {
