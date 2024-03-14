@@ -6,6 +6,7 @@ import '@/app/globalStyles/header.css'
 import Menu from "./Menu"
 import { showMenu, showModalSearch } from "@/ctx/modal"
 import { addOverflowBody } from "@/lib/utils/commonFunc"
+import CartPopUp from "./CartPopUp/CartPopUp"
 
 
 const Header = () => {
@@ -39,7 +40,9 @@ const Header = () => {
 					</li>
 					<li className='header__links__item'><Link href='/favorites' className="header__links__item__btn header__links__item__btn--favorites" /></li>
 					<li className='header__links__item'><Link href='/compare' className="header__links__item__btn header__links__item__btn--compare" /></li>
-					<li className='header__links__item'><Link href='/cart' className="header__links__item__btn header__links__item__btn--cart" /></li>
+					<li className='header__links__item'>
+						<CartPopUp />
+					</li>
 					<li className='header__links__item header__links__item--profile'><Link href='/profile' className="header__links__item__btn header__links__item__btn--profile" /></li>
 				</ul>
 			</div>

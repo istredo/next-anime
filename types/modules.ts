@@ -18,3 +18,8 @@ export interface ICatalogMenuButtonProps {
 	isActive: boolean
 	handler: VoidFunction
 }
+
+export interface IWrappedComponentProps {
+	open: boolean
+	setOpen: (arg0: boolean) => void
+}

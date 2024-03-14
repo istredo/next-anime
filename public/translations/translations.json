@@ -1,7 +1,10 @@
 {
   "en": {
     "common": {
-      "more": "More"
+      "more": "More",
+      "order_price": "Order price",
+      "not_found_title": "Looks like someone stole the page!",
+      "back_to_main": "Back to main"
     },
     "header": {
       "menu_btn": "Menu",
@@ -57,7 +60,10 @@
   },
   "ru": {
     "common": {
-      "more": "Ещё"
+      "more": "Ещё",
+      "order_price": "Сумма заказа",
+      "not_found_title": "Кажется кто то украл страницу!",
+      "back_to_main": "Вернуться на главную"
     },
     "header": {
       "menu_btn": "Меню",

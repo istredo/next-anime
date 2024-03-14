@@ -17,7 +17,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 			<Header />
 			{children}
 			{isMedia800 && <MobileNavbar />}
-			<div className=""></div>
+			<div className={`header__search-overlay ${modalSearch ? 'overlay-active' : ''}`} onClick={closeModalSearchHandler}></div>
 			<AnimatePresence>
 				{modalSearch && (
 					<motion.div
@@ -29,7 +29,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 					</motion.div>
 				)}
 			</AnimatePresence>
-			<div className={`header__search-overlay ${modalSearch ? 'overlay-active' : ''}`} onClick={closeModalSearchHandler}></div>
+
 		</>
 	)
 }
