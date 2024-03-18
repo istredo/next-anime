@@ -1,8 +1,8 @@
 
 export default function Home() {
 	return (
-		<main className=''>
-			<div className="">хоум page</div>
+		<main className='main__content'>
+			хоум page
 		</main>
 	);
 }

@@ -5,9 +5,16 @@
 	background-color: #282c33;
 	color: #fff;
 }
+body,
+html {
+	height: 100%;
+}
+
 body {
 	font-family: Montserrat, sans-serif;
 	font-weight: 400;
+	display: flex;
+	flex-direction: column;
 }
 .container {
 	max-width: 1535px;
@@ -65,4 +72,9 @@ body {
 	font-style: normal;
 	font-weight: 400;
 	src: url("../../public/fonts/Montserrat-Regular.ttf") format("ttf");
+}
+
+.main__content {
+	flex: 1 0 auto;
+	/* height: 100vh; */
 }

@@ -8,6 +8,7 @@ import MobileNavbar from '../modules/MobileNavbar/MobileNavbar'
 import { $modalSearch } from '@/ctx/modal'
 import ModalSearch from '../modules/Header/ModalSearch'
 import { closeModalSearchHandler } from '@/lib/utils/commonFunc'
+import Footer from '../modules/Footer/Footer'
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
 	const isMedia800 = useMediaQuery(800)
@@ -30,6 +31,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 				)}
 			</AnimatePresence>
 
+			<Footer />
 		</>
 	)
 }
