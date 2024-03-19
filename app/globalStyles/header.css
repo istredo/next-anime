@@ -1,6 +1,3 @@
-.header {
-	border-bottom: 1px solid white;
-}
 .header__container {
 	display: flex;
 	height: 60px;

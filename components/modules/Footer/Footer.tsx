@@ -1,13 +1,10 @@
 import Logo from '@/components/Logo'
 import { useLang } from '@/hooks/useLang'
-import { useMediaQuery } from '@/hooks/useMediaQuery'
 import Link from 'next/link'
 import React from 'react'
 
 const Footer = () => {
 	const { lang, translations } = useLang()
-	const isMedia950 = useMediaQuery(950)
-	const isMedia640 = useMediaQuery(640)
 
 	return (
 		<footer className='footer'>
