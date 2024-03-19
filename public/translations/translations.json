@@ -4,6 +4,7 @@
       "more": "More",
       "order_price": "Order price",
       "not_found_title": "Looks like someone stole the page!",
+      "ad": "Ad",
       "back_to_main": "Back to main"
     },
     "header": {
@@ -63,6 +64,34 @@
       "privacy": "Privacy policy",
       "mobile_version": "Mobile version",
       "full_version": "Full version of the site"
+    },
+    "main_page": {
+      "banner_hidden_title": "Clothing store Your site name",
+      "banner_title": "Collection",
+      "banner_description": "Your tagline",
+      "banner_subtitle": "may be with the new collection",
+      "catalog_btn": "Catalog",
+      "category_title": "Categories",
+      "category_cloth": "Cloth",
+      "category_office": "Office",
+      "category_accessories": "Accessories",
+      "category_souvenirs": "Souvenirs",
+      "bestsellers_title": "Bestsellers",
+      "new_title": "New",
+      "brand_title": "Life of our brand",
+      "brand_nature": "With care for nature",
+      "brand_look": "New look at merch",
+      "brand_idea": "Idea of the collection «Black»",
+      "is_new": "New",
+      "is_bestseller": "Bestseller",
+      "tShirt": "T-Shirt",
+      "sports_suit": "Sports suit",
+      "suit": "Costume",
+      "houdie": "Houdie",
+      "white": "white",
+      "violet": "violet",
+      "orange": "orange",
+      "black": "black"
     }
   },
   "ru": {
@@ -70,6 +99,7 @@
       "more": "Ещё",
       "order_price": "Сумма заказа",
       "not_found_title": "Кажется кто то украл страницу!",
+      "ad": "Реклама",
       "back_to_main": "Вернуться на главную"
     },
     "header": {
@@ -129,6 +159,34 @@
       "privacy": "Политика конфиденциальности",
       "mobile_version": "Мобильная версия",
       "full_version": "Полная версия сайта"
+    },
+    "main_page": {
+      "banner_hidden_title": "Магазин Название сайта",
+      "banner_title": "Название",
+      "banner_description": "Ваш слоган",
+      "banner_subtitle": "Например с новой коллекцией",
+      "catalog_btn": "Каталог",
+      "category_title": "Категории",
+      "category_cloth": "Одежда",
+      "category_office": "Концелярия",
+      "category_accessories": "Аксесуары",
+      "category_souvenirs": "Сувениры",
+      "bestsellers_title": "Хиты",
+      "new_title": "Новинки",
+      "brand_title": "Жизнь нашего бренда",
+      "brand_nature": "C заботой о природе",
+      "brand_look": "Новый взгляд на мерч",
+      "brand_idea": "Идея колекции «Black»",
+      "is_new": "Новинка",
+      "is_bestseller": "Хит",
+      "tShirt": "Футболка",
+      "sports_suit": "Спортивный костюм",
+      "suit": "Строгий костюм",
+      "houdie": "Худи",
+      "white": "белый",
+      "violet": "фиолетовая",
+      "orange": "оранжевая",
+      "black": "черный"
     }
   }
 }

@@ -75,6 +75,7 @@
 .search-modal__input {
 	width: 100%;
 	border: none;
+	outline: none;
 	background: rgba(255, 255, 255, 0.06);
 	height: 48px;
 	padding-left: 20px;
@@ -82,11 +83,10 @@
 	color: rgba(255, 255, 255, 0.9);
 	padding-top: 18px;
 }
-
 .search-modal__floating_label {
 	position: absolute;
-	left: 20px;
-	top: 12px;
+	left: 10px;
+	top: 15px;
 	pointer-events: none;
 	color: rgba(255, 255, 255, 0.4);
 	transition:
