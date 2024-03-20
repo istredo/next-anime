@@ -7,8 +7,8 @@ import 'swiper/css/effect-coverflow'
 
 import { useLang } from '@/hooks/useLang'
 import styles from '@/styles/main-page/index.module.scss'
-import image1 from '@/public/img/tuna.webp'
-import image2 from '@/public/img/gojo22.png'
+import image1 from '@/public/img/tuna.png'
+import image2 from '@/public/img/gojo2.png'
 import image3 from '@/public/img/gojo3.png'
 import BannerSlide from './BannerSlide'
 

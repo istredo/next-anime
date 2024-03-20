@@ -1,6 +1,6 @@
 'use client'
 import Link from "next/link"
-import Logo from "@/components/Logo"
+import Logo from "@/components/elems/Logo"
 import { useLang } from "@/hooks/useLang"
 import '@/app/globalStyles/header.css'
 import Menu from "./Menu"

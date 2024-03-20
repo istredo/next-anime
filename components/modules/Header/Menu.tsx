@@ -9,7 +9,7 @@ import '@/app/globalStyles/menu.css'
 import { removeOverflowBody } from "@/lib/utils/commonFunc"
 import { setLang } from "@/ctx/lang"
 import { AllowedLanguages } from "@/const/lang"
-import Logo from "@/components/Logo"
+import Logo from "@/components/elems/Logo"
 import { $openMenu, hideMenu } from "@/ctx/modal"
 import Accordion from "../Accordion/Accordion"
 import MenuLinkItem from "./MenuLinkedItem"
