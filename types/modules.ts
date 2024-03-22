@@ -1,3 +1,5 @@
+import { IProduct } from "./common"
+
 export interface IAccordionProps {
 	children: React.ReactNode
 	title: string | JSX.Element
@@ -22,4 +24,10 @@ export interface ICatalogMenuButtonProps {
 export interface IWrappedComponentProps {
 	open: boolean
 	setOpen: (arg0: boolean) => void
+}
+
+export interface IMainPageSectionProps {
+	title: string
+	goods: IProduct[]
+	spinner: boolean
 }
