@@ -1,7 +1,7 @@
 /* eslint-disable indent */
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { faker } = require('@faker-js/faker')
-
+const collections = ['street', 'black', 'casual', 'orange', 'line']
 const getRandomArrayValue = (arr) => arr[Math.floor(Math.random() * arr.length)]
 const compositions = ['synthetics', 'polyester']
 const souvenirsTypes = ['trinket', 'keychain']
@@ -10,10 +10,10 @@ const images = [
 	'/img/souvenirs/trinket-1.png',
 	'/img/souvenirs/trinket-2.png',
 	'/img/souvenirs/trinket-3.png',
-	'/img/souvenirs/trinket-4.png',
-	'/img/souvenirs/trinket-5.png',
-	'/img/souvenirs/trinket-6.png',
-	'/img/souvenirs/trinket-7.png',
+	'/img/souvenirs/keychain.png',
+	'/img/souvenirs/keychain-1.png',
+	'/img/souvenirs/keychain-2.png',
+	'/img/souvenirs/keychain-3.png',
 ]
 const wearingMethod = ['on bag', 'on keys']
 const styles = ['bucket bag', 'retro style', 'travel']
@@ -33,6 +33,18 @@ module.exports = {
 						wearingMethod: getRandomArrayValue(wearingMethod),
 						spokeMaterial: getRandomArrayValue(spokeMaterials),
 						style: getRandomArrayValue(styles),
+						collection:
+							collections[Math.floor(Math.random() * collections.length)],
+
+					},
+					{
+						type: 'keychain',
+						composition: getRandomArrayValue(compositions),
+						wearingMethod: getRandomArrayValue(wearingMethod),
+						spokeMaterial: getRandomArrayValue(spokeMaterials),
+						style: getRandomArrayValue(styles),
+						collection:
+							collections[Math.floor(Math.random() * collections.length)],
 					}
 				]
 				return {
@@ -43,7 +55,7 @@ module.exports = {
 					description: faker.lorem.sentences(10),
 					characteristics: characteristics.find((item) => item.type === type),
 					images: images.filter((item) => item.includes(type)),
-					vendorCode: faker.string.numeric(4),
+					article: faker.string.numeric(4),
 					inStock: faker.string.numeric(2),
 					isBestseller: faker.datatype.boolean(),
 					isNew: faker.datatype.boolean(),

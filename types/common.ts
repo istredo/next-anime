@@ -8,7 +8,7 @@ export interface IProduct {
 	description: string
 	characteristics: { [index: string]: string }
 	images: string[]
-	vendorCode: string
+	article: string
 	inStock: string
 	isBestseller: boolean
 	isNew: boolean

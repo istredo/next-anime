@@ -101,7 +101,7 @@ module.exports = {
 					type === 't-shirts' && currentCharacteristics.collection === 'line'
 						? [getRandomValue(lineImages)]
 						: images.filter((item) => item.includes(type)),
-				vendorCode: faker.string.numeric(4),
+				article: faker.string.numeric(4),
 				inStock: faker.string.numeric(2),
 				isBestseller: faker.datatype.boolean(),
 				isNew: faker.datatype.boolean(),

@@ -31,3 +31,13 @@ export interface IMainPageSectionProps {
 	goods: IProduct[]
 	spinner: boolean
 }
+
+export interface IproductListProps {
+	item: IProduct
+	title?: string
+}
+
+export interface IProductLabelProps {
+	isNew: boolean
+	isBestseller: boolean
+}

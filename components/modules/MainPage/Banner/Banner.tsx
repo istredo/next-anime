@@ -5,18 +5,19 @@ import { EffectCoverflow } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/effect-coverflow'
 
-import { useLang } from '@/hooks/useLang'
+
 import styles from '@/styles/main-page/index.module.scss'
-import image1 from '@/public/img/tuna.png'
+import stylesAd from '@/styles/ad/index.module.scss'
+import image1 from '@/public/img/tuna3.png'
 import image2 from '@/public/img/gojo2.png'
 import image3 from '@/public/img/gojo3.png'
+import { useLang } from '@/hooks/useLang'
 import BannerSlide from './BannerSlide'
+import { Dialog } from '@/components/elems/Dialog'
 
 
 const Banner = () => {
 	const { lang, translations } = useLang()
-	const sliceDescription = lang === 'ru' ? 3 : 4;
-
 
 	const slides = [
 		{
@@ -44,7 +45,7 @@ const Banner = () => {
 				{translations[lang].main_page.banner_hidden_title}
 			</h1>
 			<div className={`container ${styles.banner__container}`}>
-				<span className={styles.ad}>{translations[lang].common.ad}</span>
+				<span className={stylesAd.ad}>{translations[lang].common.ad}</span>
 				<Swiper
 					className={styles.banner__slider}
 					effect='coverflow'
@@ -55,7 +56,7 @@ const Banner = () => {
 						modifier: 2.5,
 					}}
 					slidesPerView='auto'
-					initialSlide={2}
+					initialSlide={1}
 					// autoplay
 					// loop
 					onClick={handleSlideClick}
@@ -69,16 +70,7 @@ const Banner = () => {
 						</SwiperSlide>
 					))}
 				</Swiper>
-				<div className={styles.banner__subtitle}>
-					<div className={styles.banner__subtitle__rect} />
-					<span className={styles.tagline}>
-						{translations[lang].main_page.banner_description.slice(0, sliceDescription)}
-					</span>
-					<br />
-					<span className={styles.tagline}>
-						{translations[lang].main_page.banner_description.slice(sliceDescription)}
-					</span>
-				</div>
+				<Dialog />
 				<h2 className={styles.banner__title}>
 					<span
 						className={`${styles.banner__title__subtitle} ${lang === 'ru' ? '' : styles.banner__title__subtitle_lang

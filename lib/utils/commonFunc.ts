@@ -34,6 +34,9 @@ export const shuffle = <T>(array: T[]) => {
 				array[currentIndex],
 			]
 	}
-
 	return array
 }
+
+
+export const formatPrice = (x: number) =>
+	x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
