@@ -5,7 +5,7 @@ const getRandomValue = (arr) => arr[Math.floor(Math.random() * arr.length)]
 const collections = ['street', 'black', 'casual', 'orange', 'line']
 const colors = ['purpure', 'yellow', 'orange', 'black', 'white']
 const compositions = ['cotton', 'synthetics', 'polyester']
-const clothTypes = ['hoodie', 't-shirt']
+const clothTypes = ['t-shirt', 'hoodie']
 const images = [
 	'/img/clothes/cloth-hoodie.png',
 	'/img/clothes/cloth-hoodie-1.png',
@@ -23,10 +23,13 @@ const images = [
 	'/img/clothes/cloth-t-shirts-6.png',
 ]
 const lineImages = [
-	'/img/black-t.png',
-	'/img/violet-t.png',
-	'/img/orange-t.png',
+	'/img/office/note.png',
+	'/img/office/note1.png',
+	'/img/office/note2.png',
+
 ]
+
+console.log(getRandomValue(lineImages))
 const fabricTypes = [
 	'natural',
 	'non-natural',
@@ -61,7 +64,7 @@ module.exports = {
 			const type = clothTypes[Math.floor(Math.random() * clothTypes.length)]
 			const characteristics = [
 				{
-					type: 't-shirts',
+					type: 't-shirt',
 					color: getRandomValue(colors),
 					collar: getRandomValue(collars),
 					silhouette: 'straight',
@@ -85,6 +88,8 @@ module.exports = {
 					sleeve: getRandomValue(sleeves),
 					clasp: faker.datatype.boolean(),
 					season: getRandomValue(seasons),
+					collection:
+						collections[Math.floor(Math.random() * collections.length)],
 				}
 			]
 			const currentCharacteristics = characteristics.find(
@@ -98,7 +103,7 @@ module.exports = {
 				description: faker.lorem.sentences(10),
 				characteristics: currentCharacteristics,
 				images:
-					type === 't-shirts' && currentCharacteristics.collection === 'line'
+					type === 't-shirt' && currentCharacteristics.collection === 'line'
 						? [getRandomValue(lineImages)]
 						: images.filter((item) => item.includes(type)),
 				article: faker.string.numeric(4),
@@ -122,5 +127,3 @@ module.exports = {
 		return db.collection('cloth').updateMany([])
 	}
 };
-
-//3.06.00

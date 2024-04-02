@@ -11,15 +11,23 @@ import { useLang } from '@/hooks/useLang'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import styles from '@/styles/product-list-item/index.module.scss'
 import stylesAd from '@/styles/ad/index.module.scss'
+import { IProduct } from '@/types/common'
 
 
 const ProductList = ({ item, title }: IproductListProps) => {
 	const { lang, translations } = useLang()
 	const isTitleNew = title === translations[lang].main_page.new_title
 	const isMedia800 = useMediaQuery(800)
+
+	const randomImage = (item: IProduct) => {
+		let currentIndex = item.images.length
+		const randomIndex = Math.floor(Math.random() * currentIndex)
+		return item.images[randomIndex]
+	}
+
 	return (
 		<>
-			{item.type === 't-shirt' ?
+			{item.characteristics.collection === 'line' && item.type === 't-shirt' ?
 				<li className={styles.list__item_ad}>
 					<Link href={`/catalog/${item.category}/${item._id}`} className={styles.list__item_ad__inner}>
 						<span className={`${stylesAd.ad} ${styles.list__item_ad__ad}`}>
@@ -27,17 +35,17 @@ const ProductList = ({ item, title }: IproductListProps) => {
 						</span>
 						<Dialog dialogClassName={styles.list__item_ad__dialog} dialogRectClassName={styles.list__item_ad__dialog__rect} />
 						<div className={styles.list__item_ad__img}>
-							<Image src={item.images[0]} alt={item.name} className={styles.list__image} fill />
+							<Image src={randomImage(item)} alt={item.name} className={styles.list__image} fill />
 						</div>
 						<p className={styles.list__item_ad__title}>
 							<span>
-								{translations[lang].main_page.tShirt} «Super»{' '}
-								{
+								{translations[lang].main_page.category_office} «Super»{' '}
+								{/* {
 									//@ts-ignore
 									translations[lang].main_page[item.images[0].split('/img/').join('').split('-')[0]]
-								}
+								} */}
 							</span>
-							<span>{formatPrice(+item.price)} ₽</span>
+							<span>{formatPrice(+item.price)}₽</span>
 						</p>
 					</Link>
 				</li>
@@ -70,7 +78,7 @@ const ProductList = ({ item, title }: IproductListProps) => {
 					<Link
 						href={`/catalog/${item.category}/${item._id}`}
 						className={styles.list__item__img}>
-						<Image src={item.images[0]} alt={item.name} fill />
+						<Image src={randomImage(item)} alt={item.name} fill />
 					</Link>
 					<div className={styles.list__item__inner}>
 						<h3 className={styles.list__item__title}>
