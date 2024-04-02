@@ -63,7 +63,9 @@
 		&__img {
 			margin: auto;
 			display: block;
-
+			position: relative;
+			max-width: 352px;
+			max-height: 332px;
 			img {
 				max-height: 332px;
 				max-width: 352px;
@@ -170,9 +172,6 @@
 			background: radial-gradient(52.53% 52.53% at 50% 47.47%, #4e5d77 0%, rgba(42, 50, 63, 0) 100%);
 		}
 	}
-	&_bgc {
-		background-color: red;
-	}
 	&__item_ad {
 		min-height: 453px;
 		position: relative;
@@ -232,7 +231,7 @@
 			width: 224px;
 			height: 255px;
 			margin: 0 auto;
-			text-align: center;
+			// text-align: center;
 
 			@media (max-width: 590px) {
 				width: 160px;
@@ -246,6 +245,7 @@
 
 			.list__image {
 				object-fit: contain;
+				position: absolute;
 			}
 		}
 

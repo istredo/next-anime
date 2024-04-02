@@ -6,12 +6,12 @@ import { Dialog } from '@/components/elems/Dialog'
 import { ProductItemAction } from '@/components/elems/ProductItemAction'
 import { ProductAvailable } from '@/components/elems/ProductAvailable'
 import { formatPrice } from '@/lib/utils/commonFunc'
-import { IproductListProps } from '@/types/modules'
 import { useLang } from '@/hooks/useLang'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import styles from '@/styles/product-list-item/index.module.scss'
 import stylesAd from '@/styles/ad/index.module.scss'
 import { IProduct } from '@/types/common'
+import { IproductListProps } from '@/types/modules'
 
 
 const ProductList = ({ item, title }: IproductListProps) => {
@@ -35,7 +35,9 @@ const ProductList = ({ item, title }: IproductListProps) => {
 						</span>
 						<Dialog dialogClassName={styles.list__item_ad__dialog} dialogRectClassName={styles.list__item_ad__dialog__rect} />
 						<div className={styles.list__item_ad__img}>
-							<Image src={randomImage(item)} alt={item.name} className={styles.list__image} fill />
+							<Image src={randomImage(item)} alt={item.name} className={styles.list__image} width="220"
+								height="250" priority={false} />
+
 						</div>
 						<p className={styles.list__item_ad__title}>
 							<span>
@@ -78,7 +80,10 @@ const ProductList = ({ item, title }: IproductListProps) => {
 					<Link
 						href={`/catalog/${item.category}/${item._id}`}
 						className={styles.list__item__img}>
-						<Image src={randomImage(item)} alt={item.name} fill />
+
+						<Image src={randomImage(item)} alt={item.name} className={styles.list__image} width="310"
+							height="300" priority={false}
+						/>
 					</Link>
 					<div className={styles.list__item__inner}>
 						<h3 className={styles.list__item__title}>

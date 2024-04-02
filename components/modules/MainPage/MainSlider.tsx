@@ -52,6 +52,7 @@ const MainSlider = ({
 						width={357}
 						height={357}
 						onLoad={imgageLoadingHandler}
+						priority={true}
 					/>
 					<span>{item.title.replace(/\s/g, '\u00A0')}</span>
 				</Link>

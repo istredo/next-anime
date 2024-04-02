@@ -13,6 +13,7 @@ const BannerSlide = ({ slide }: { slide: IBannerSlide }) => (
 			alt={slide.title}
 			className={styles.banner__slider__slide__img}
 			loading='eager'
+			priority={true}
 		/>
 		<SliderTooltip title={slide.title} image={slide.image} />
 	</>
