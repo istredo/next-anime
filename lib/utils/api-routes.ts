@@ -20,14 +20,8 @@ export const getDbAndReqBody = async (
 export const getNewAndBestsellerGoods = async (db: Db, fieldName: string) => {
 	const clothes = await db.collection('cloth').find().toArray()
 	const souvenirs = await db.collection('souvenirs').find().toArray()
-
-	return shuffle([
-		...clothes
-			.filter((item) => item[fieldName] && Object.values(item.sizes).some((value) => value)
-			)
-			.slice(0, 2),
-		...souvenirs
-			.filter((item) => item[fieldName] && Object.values(item.sizes).some((value) => value)
-			).slice(0, 2),
-	])
+	const shuffleCloth = shuffle([...clothes].filter((item) => item[fieldName] && Object.values(item.sizes).some((value) => value))).slice(0, 2)
+	const shuffleSouvenirs = shuffle([...souvenirs].filter((item) => item[fieldName])).slice(0, 1)
+	const shuffleAd = shuffle([...clothes].filter((item) => item.characteristics.collection === 'line')).slice(0, 1)
+	return [...shuffleCloth, ...shuffleSouvenirs, ...shuffleAd]
 }
