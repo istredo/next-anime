@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PagesLayout } from "@/components/layouts/PagesLayout";
 
 import './globalStyles/normalize.css'
-import "./globalStyles/globals.css";
+import "./globalStyles/globals.scss";
 import "./globalStyles/header.css";
 import "./globalStyles/menu.css";
 import "./globalStyles/mobile-navbar.css";

@@ -24,3 +24,8 @@ export interface ISizes {
 	xl: boolean
 	xxl: boolean
 }
+export interface ISelectedSizes {
+	sizes: ISizes
+	type: string
+	className?: string
+}

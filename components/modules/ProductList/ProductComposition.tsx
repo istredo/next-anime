@@ -2,7 +2,7 @@
 import styles from '@/styles/product-list-item/index.module.scss'
 import { useLang } from '@/hooks/useLang'
 
-const ProductComposition = ({ composition }: { composition: string }) => {
+export const ProductComposition = ({ composition }: { composition: string }) => {
 	const { lang, translations } = useLang()
 
 	return (
@@ -14,4 +14,3 @@ const ProductComposition = ({ composition }: { composition: string }) => {
 	)
 }
 
-export default ProductComposition

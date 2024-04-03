@@ -14,6 +14,9 @@ export const hideModalSearch = modals.createEvent();
 export const showQuickView = modals.createEvent();
 export const hideQuickView = modals.createEvent();
 
+export const showSizes = modals.createEvent();
+export const hideSizes = modals.createEvent();
+
 export const $openMenu = modals
 	.createStore(false)
 	.on(showMenu, () => true)
@@ -33,3 +36,8 @@ export const $modalQuickView = modals
 	.createStore(false)
 	.on(showQuickView, () => true)
 	.on(hideQuickView, () => false)
+
+export const $modalSizeView = modals
+	.createStore(false)
+	.on(showSizes, () => true)
+	.on(hideSizes, () => false)

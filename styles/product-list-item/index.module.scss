@@ -1,3 +1,5 @@
+@import "../variables";
+
 .list {
 	&__item {
 		min-height: 453px;
@@ -108,7 +110,7 @@
 			font-size: 16px;
 			font-weight: 500;
 			border-radius: 32px;
-			background-color: green;
+			background-color: $green !important;
 			padding: 12px 24px !important;
 			transition:
 				background-color 0.2s ease-in-out,
@@ -125,7 +127,7 @@
 			}
 
 			&:hover {
-				background-color: rgb(9, 70, 7);
+				background-color: $accent_hover !important;
 				transition: background-color 0.2s ease-in-out;
 			}
 
@@ -178,8 +180,8 @@
 		padding: 16px;
 		transition: box-shadow 0.2s ease-in-out;
 		display: block;
-		background: radial-gradient(112.11% 111.8% at 100% 0%, #4075ff 0%, rgba(64, 117, 255, 0) 100%),
-			radial-gradient(111.72% 111.46% at 27% 0%, #16d9a6 0%, rgba(22, 217, 166, 0) 100%), green;
+		background: radial-gradient(112.11% 111.8% at 100% 0%, $green 0%, rgba(64, 117, 255, 0) 100%),
+			radial-gradient(111.72% 111.46% at 27% 0%, $accent_hover 0%, rgba(22, 217, 166, 0) 100%), $accent;
 		&__inner {
 			text-decoration: none;
 		}
@@ -312,7 +314,7 @@
 		background-position: left center;
 
 		&__green {
-			color: #26da72;
+			color: $green;
 			background-image: url("/img/green-ellipse.svg");
 		}
 

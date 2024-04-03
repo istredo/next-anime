@@ -2,7 +2,7 @@
 import { useLang } from '@/hooks/useLang'
 import styles from '@/styles/product-list-item/index.module.scss'
 
-const ProductColor = ({ color }: { color: string }) => {
+export const ProductColor = ({ color }: { color: string }) => {
 	const { lang, translations } = useLang()
 
 	return (
@@ -12,5 +12,3 @@ const ProductColor = ({ color }: { color: string }) => {
 		</span>
 	)
 }
-
-export default ProductColor

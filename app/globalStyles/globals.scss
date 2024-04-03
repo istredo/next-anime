@@ -199,3 +199,58 @@ body::-webkit-scrollbar-thumb:hover {
 .quick-modal-dots li.slick-active button {
 	background-image: url(/img/white-ellipse.svg) !important;
 }
+
+.counter {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 12px 16px;
+	border-radius: 24px;
+	background-color: rgba(255, 255, 255, 0.06);
+	min-height: 45px;
+	button {
+		position: relative;
+		height: 22px;
+		width: 24px;
+	}
+	button:disabled {
+		opacity: 0.5;
+		pointer-events: none;
+	}
+	button::before {
+		content: "";
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		background-color: #fff;
+		transition: background-color 0.2s ease-in-out;
+	}
+	button:first-child:before {
+		-webkit-mask: url(/img/minus.svg) no-repeat 50% 50%;
+		mask: url(/img/minus.svg) no-repeat 50% 50%;
+	}
+	button:last-child:before {
+		-webkit-mask: url(/img/plus.svg) no-repeat 50% 50%;
+		mask: url(/img/plus.svg) no-repeat 50% 50%;
+	}
+	button:hover::before {
+		transition: background-color 0.2s ease-in-out;
+		background-color: green;
+	}
+	span {
+		color: rgba(255, 255, 255, 0.9);
+		font-size: 16px;
+		font-weight: 400;
+	}
+}
+
+.sizes-table-btn {
+	color: green;
+	font-size: 14px;
+	text-decoration-line: underline;
+	&:hover {
+		color: rgb(5, 92, 58);
+	}
+}
