@@ -56,7 +56,7 @@ export const QuickView = () => {
 						<ProductComposition
 							composition={product.characteristics.composition} />
 					)}
-					{Object.keys(product.sizes).length ? (
+					{product.hasOwnProperty('sizes') ? (
 						<div className={styles.info__size}>
 							<div className={styles.info__size__inner}>
 								<span className={stylesItem.product__size_title}>
@@ -90,7 +90,7 @@ export const QuickView = () => {
 						<div className={styles.bottom__inner}>
 
 							<div className={styles.bottom__inner}>
-								{!!selectSize ?
+								{!!selectSize || !product.hasOwnProperty('sizes') ?
 									(
 										<ProductCounter
 											className={`counter ${styles.bottom__counter}`}

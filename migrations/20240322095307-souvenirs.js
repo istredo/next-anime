@@ -60,16 +60,6 @@ module.exports = {
 					isBestseller: faker.datatype.boolean(),
 					isNew: faker.datatype.boolean(),
 					popularity: +faker.string.numeric(3),
-					sizes:
-						type === 'umbrella'
-							? {}
-							: {
-								s: faker.datatype.boolean(),
-								m: faker.datatype.boolean(),
-								l: faker.datatype.boolean(),
-								xl: faker.datatype.boolean(),
-								xxl: faker.datatype.boolean(),
-							},
 				}
 			})
 		)
