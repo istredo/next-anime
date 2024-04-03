@@ -5,13 +5,15 @@ import { ProductLabel } from './ProductLabel'
 import { Dialog } from '@/components/elems/Dialog'
 import { ProductItemAction } from '@/components/elems/ProductItemAction'
 import { ProductAvailable } from '@/components/elems/ProductAvailable'
-import { formatPrice } from '@/lib/utils/commonFunc'
+import { addOverflowBody, formatPrice } from '@/lib/utils/commonFunc'
 import { useLang } from '@/hooks/useLang'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import styles from '@/styles/product-list-item/index.module.scss'
 import stylesAd from '@/styles/ad/index.module.scss'
 import { IProduct } from '@/types/common'
 import { IproductListProps } from '@/types/modules'
+import { showQuickView } from '@/ctx/modal'
+import { setCurrentProduct } from '@/ctx/goods'
 
 
 const ProductList = ({ item, title }: IproductListProps) => {
@@ -23,6 +25,11 @@ const ProductList = ({ item, title }: IproductListProps) => {
 		let currentIndex = item.images.length
 		const randomIndex = Math.floor(Math.random() * currentIndex)
 		return item.images[randomIndex]
+	}
+	const quickViewHandler = () => {
+		addOverflowBody()
+		showQuickView()
+		setCurrentProduct(item)
 	}
 
 	return (
@@ -73,7 +80,10 @@ const ProductList = ({ item, title }: IproductListProps) => {
 						<ProductItemAction text={translations[lang].product.add_to_favorites} iconClass='actions__btn_favorite' />
 						<ProductItemAction text={translations[lang].product.add_to_comparison} iconClass='actions__btn_comparison' />
 						{
-							!isMedia800 && <ProductItemAction text={translations[lang].product.quick_view} iconClass='actions__btn_quick_view' />
+							!isMedia800 &&
+							<ProductItemAction text={translations[lang].product.quick_view}
+								iconClass='actions__btn_quick_view'
+								callback={quickViewHandler} />
 
 						}
 					</div>

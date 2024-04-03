@@ -108,7 +108,7 @@
 			font-size: 16px;
 			font-weight: 500;
 			border-radius: 32px;
-			background-color: #9466ff;
+			background-color: green;
 			padding: 12px 24px !important;
 			transition:
 				background-color 0.2s ease-in-out,
@@ -125,7 +125,7 @@
 			}
 
 			&:hover {
-				background-color: #70f;
+				background-color: rgb(9, 70, 7);
 				transition: background-color 0.2s ease-in-out;
 			}
 

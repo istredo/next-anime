@@ -50,7 +50,8 @@ body::-webkit-scrollbar-thumb:hover {
 	list-style-type: none;
 }
 
-.header__search-overlay {
+.header__search-overlay,
+.quick-view-modal-overlay {
 	background-color: #16171b;
 	height: 100%;
 	left: 0;
@@ -61,10 +62,14 @@ body::-webkit-scrollbar-thumb:hover {
 	width: 100%;
 	z-index: -1;
 }
-.header__search-overlay.overlay-active {
+.header__search-overlay.overlay-active,
+.quick-view-modal-overlay.overlay-active {
 	opacity: 0.6;
 	visibility: visible;
 	z-index: 101;
+}
+.quick-view-modal-overlay.overlay-active {
+	z-index: 2;
 }
 @font-face {
 	font-display: swap;
@@ -97,6 +102,9 @@ body::-webkit-scrollbar-thumb:hover {
 	margin: 0 9px;
 }
 
+.overflow-hidden {
+	overflow: hidden;
+}
 /* ----- swiper------------------------------- */
 .visually-hidden {
 	position: absolute;
@@ -186,4 +194,8 @@ body::-webkit-scrollbar-thumb:hover {
 
 .duration {
 	transition-duration: 2s;
+}
+
+.quick-modal-dots li.slick-active button {
+	background-image: url(/img/white-ellipse.svg) !important;
 }

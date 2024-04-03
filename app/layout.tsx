@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { PagesLayout } from "@/components/layouts/PagesLayout";
+
 import './globalStyles/normalize.css'
 import "./globalStyles/globals.css";
 import "./globalStyles/header.css";
@@ -10,7 +12,6 @@ import "./globalStyles/cart-popup.css";
 import "./globalStyles/footer.css";
 import "./globalStyles/slick.css";
 import "./globalStyles/slick-theme.css";
-import Layout from "@/components/layouts/Layout";
 
 
 export const metadata: Metadata = {
@@ -23,13 +24,5 @@ export default function RootLayout({
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
-	return (
-		<html lang="ru">
-			<body >
-				<Layout>
-					{children}
-				</Layout>
-			</body>
-		</html>
-	);
+	return <PagesLayout>{children}</PagesLayout>;
 }

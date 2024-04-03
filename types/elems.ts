@@ -1,3 +1,5 @@
+import { CustomArrowProps } from "react-slick"
+
 export interface IDialogProps {
 	dialogClassName?: string
 	dialogRectClassName?: string
@@ -15,4 +17,8 @@ export interface IProductItemActionProps {
 export interface IProductAvailableProps {
 	article: string
 	inStock: number
+}
+
+export interface IQuickViewArrowProps extends CustomArrowProps {
+	directionClassName: string
 }

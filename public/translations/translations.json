@@ -113,6 +113,30 @@
       "more": "More information about the product",
       "composition": "Composition",
       "in_cart": "Added"
+    },
+    "catalog": {
+      "all_categories": "All categories",
+      "popular": "Popular",
+      "new": "New",
+      "cheap_first": "Cheap first",
+      "expensive_first": "Expensive first",
+      "categories": "Categories",
+      "sort": "Sort",
+      "price": "Price",
+      "from": "From",
+      "to": "To",
+      "rub": "₽",
+      "done": "Done",
+      "size": "Size",
+      "color": "Color",
+      "purpure": "Purpure",
+      "orange": "Orange",
+      "yellow": "Yellow",
+      "black": "Black",
+      "white": "White",
+      "cotton": "Cotton",
+      "synthetics": "Synthetic",
+      "polyester": "Polyester"
     }
   },
   "ru": {
@@ -229,6 +253,30 @@
       "more": "Больше информации о товаре",
       "composition": "Состав",
       "in_cart": "Добавлено"
+    },
+    "catalog": {
+      "all_categories": "Все категории",
+      "popular": "Популярные",
+      "new": "Новинки",
+      "cheap_first": "Сначала дешевые",
+      "expensive_first": "Сначала дорогие",
+      "categories": "Категории",
+      "sort": "Сортировка",
+      "price": "Цена",
+      "from": "От",
+      "to": "До",
+      "rub": "руб.",
+      "done": "Готово",
+      "size": "Размер",
+      "color": "Цвет",
+      "purpure": "Пурпурный",
+      "orange": "Оранжевый",
+      "yellow": "Желтый",
+      "black": "Черный",
+      "white": "Белый",
+      "cotton": "Хлопок",
+      "synthetics": "Синтетика",
+      "polyester": "Полиэстер"
     }
   }
 }

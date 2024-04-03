@@ -62,7 +62,7 @@
 
 		&:hover::before {
 			transition: background-color 0.2s ease-in-out;
-			background-color: #16d9a6;
+			background-color: green;
 		}
 
 		&.actions__btn_favorite_checked:hover::before {
