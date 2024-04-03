@@ -1,8 +1,11 @@
 import Link from "next/link"
+import Image from 'next/image'
+import logo from '@/public/img/logo.svg'
 
 const Logo = () => (
 	<Link className="logo" href='/'>
-		<img className='logo__img' src="/img/logo.svg" alt="Site Logo" />
+
+		<Image className='logo__img' src={logo} alt="Site Logo" />
 	</Link>
 )
 export default Logo
