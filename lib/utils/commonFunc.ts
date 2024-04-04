@@ -1,4 +1,4 @@
-import { hideModalSearch, hideQuickView } from "@/ctx/modal";
+import { hideModalSearch, hideQuickView, hideSizes } from "@/ctx/modal";
 
 
 export const removeOverflowBody = () => {
@@ -61,4 +61,13 @@ export const idGenerator = () => {
 		S4() +
 		S4()
 	)
+}
+
+
+export const closeSizeTable = (quickView: boolean) => {
+	if (!quickView) {
+		removeOverflowBody()
+	}
+
+	hideSizes()
 }

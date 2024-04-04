@@ -3,8 +3,8 @@ import { ISelectedSizes } from '@/types/common'
 
 const sizeTable = createDomain()
 
-export const setSizeTableSizes = sizeTable.createEvent<ISelectedSizes>()
+export const setSizes = sizeTable.createEvent<ISelectedSizes>()
 
-export const $sizeTableSizes = sizeTable
-  .createStore({} as ISelectedSizes)
-  .on(setSizeTableSizes, (_, sizes) => sizes)
+export const $setSizes = sizeTable
+	.createStore({} as ISelectedSizes)
+	.on(setSizes, (_, sizes) => sizes)

@@ -2,11 +2,13 @@
 import React from 'react'
 import { useUnit } from 'effector-react'
 import Layout from './Layout'
-import { $modalQuickView } from '@/ctx/modal'
-import { closeQuickViewHandler } from '@/lib/utils/commonFunc'
+import { $modalQuickView, $modalSizeView } from '@/ctx/modal'
+import { closeQuickViewHandler, closeSizeTable } from '@/lib/utils/commonFunc'
 
 export const PagesLayout = ({ children }: { children: React.ReactNode }) => {
 	const modalQuickView = useUnit($modalQuickView)
+	const modalSizeView = useUnit($modalSizeView)
+	const sizesHandler = () => closeSizeTable(modalQuickView)
 	return (
 		<html lang="ru">
 			<body >
@@ -14,6 +16,7 @@ export const PagesLayout = ({ children }: { children: React.ReactNode }) => {
 					{children}
 				</Layout>
 				<div className={`quick-view-modal-overlay ${modalQuickView ? 'overlay-active' : ''}`} onClick={closeQuickViewHandler} />
+				<div className={`size-table-overlay ${modalSizeView ? 'overlay-active' : ''}`} onClick={sizesHandler} />
 			</body>
 		</html>
 	)

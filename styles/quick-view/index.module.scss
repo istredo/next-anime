@@ -259,7 +259,7 @@
 			border: none;
 			margin: 0;
 			border-radius: 32px;
-			background-color: #009b77 !important;
+			background-color: $accent_dark !important;
 			padding: 12px 24px !important;
 			width: 164px;
 			color: #fff;
@@ -293,7 +293,7 @@
 
 		&__link {
 			text-decoration: none;
-			color: $green;
+			color: $accent;
 			text-align: center;
 			font-size: 16px;
 			font-weight: 500;

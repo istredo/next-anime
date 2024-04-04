@@ -2,7 +2,7 @@
 import { useUnit } from 'effector-react'
 import { showSizes, $modalSizeView } from '@/ctx/modal'
 import { ISelectedSizes } from '@/types/common'
-import { setSizeTableSizes } from '@/ctx/sizeTable'
+import { setSizes } from '@/ctx/sizeTable'
 import { useLang } from '@/hooks/useLang'
 import { addOverflowBody } from '@/lib/utils/commonFunc'
 
@@ -15,7 +15,7 @@ export const SizeTableBtn = ({ sizes, type, className }: ISelectedSizes) => {
 			addOverflowBody()
 		}
 
-		setSizeTableSizes({ sizes, type })
+		setSizes({ sizes, type })
 		showSizes()
 	}
 

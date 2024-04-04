@@ -9,9 +9,7 @@ import ProductList from '../ProductList/ProductList'
 
 
 const MainPageSection = ({ title, goods, spinner }: IMainPageSectionProps) => {
-	// console.log(goods, 'goods')
-	// console.log(spinner, 'spinner')
-	// console.log(title, 'title')
+
 	return (
 		<section className={styles.main_section}>
 			<div className={`container ${styles.main_section__container}`}>

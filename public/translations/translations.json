@@ -137,6 +137,16 @@
       "cotton": "Cotton",
       "synthetics": "Synthetic",
       "polyester": "Polyester"
+    },
+    "size_table": {
+      "head_circumference": "Head circumference, cm",
+      "size": "Size",
+      "russian_size": "Russian size",
+      "manufacturer_size": "Manufacturer size",
+      "chest_circumference": "Chest circumference, cm",
+      "waist_circumference": "Waist circumference, cm",
+      "hip_circumference": "Hip circumference, cm",
+      "title": "Size table"
     }
   },
   "ru": {
@@ -277,6 +287,16 @@
       "cotton": "Хлопок",
       "synthetics": "Синтетика",
       "polyester": "Полиэстер"
+    },
+    "size_table": {
+      "head_circumference": "Обхват головы, см",
+      "size": "Размер",
+      "russian_size": "Российский размер",
+      "manufacturer_size": "Размер производителя",
+      "chest_circumference": "Обхват груди, в см",
+      "waist_circumference": "Обхват талии, в см",
+      "hip_circumference": "Обхват бедер, в см",
+      "title": "Таблица размеров"
     }
   }
 }

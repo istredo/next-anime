@@ -113,8 +113,8 @@ module.exports = {
 				popularity: +faker.string.numeric(3),
 				sizes: {
 					s: faker.datatype.boolean(),
-					l: faker.datatype.boolean(),
 					m: faker.datatype.boolean(),
+					l: faker.datatype.boolean(),
 					xl: faker.datatype.boolean(),
 					xxl: faker.datatype.boolean(),
 				},

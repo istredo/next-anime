@@ -94,7 +94,7 @@ export const QuickView = () => {
 									(
 										<ProductCounter
 											className={`counter ${styles.bottom__counter}`}
-											count={0}
+											count={1}
 										/>
 									) : (
 										<div

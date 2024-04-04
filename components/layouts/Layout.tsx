@@ -5,16 +5,18 @@ import { useUnit } from 'effector-react'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import Header from '../modules/Header/Header'
 import MobileNavbar from '../modules/MobileNavbar/MobileNavbar'
-import { $modalQuickView, $modalSearch } from '@/ctx/modal'
+import { $modalQuickView, $modalSearch, $modalSizeView } from '@/ctx/modal'
 import ModalSearch from '../modules/Header/ModalSearch'
 import { closeModalSearchHandler, closeQuickViewHandler } from '@/lib/utils/commonFunc'
 import Footer from '../modules/Footer/Footer'
 import { QuickView } from '../modules/QuickView/QuickView'
+import { Sizes } from '../modules/Sizes/Sizes'
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
 	const isMedia800 = useMediaQuery(800)
 	const modalSearch = useUnit($modalSearch)
 	const showQuickView = useUnit($modalQuickView)
+	const modalSizeView = useUnit($modalSizeView)
 	return (
 		<>
 			<Header />
@@ -29,6 +31,15 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 						exit={{ opacity: 0 }}
 					>
 						<ModalSearch />
+					</motion.div>
+				)}
+				{modalSizeView && (
+					<motion.div
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
+					>
+						<Sizes />
 					</motion.div>
 				)}
 			</AnimatePresence>
