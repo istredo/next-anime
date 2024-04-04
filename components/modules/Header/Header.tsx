@@ -5,7 +5,7 @@ import { useLang } from "@/hooks/useLang"
 import '@/app/globalStyles/header.css'
 import Menu from "./Menu"
 import { showMenu, showModalSearch } from "@/ctx/modal"
-import { addOverflowBody } from "@/lib/utils/commonFunc"
+import { addOverflowBody, openAuthHandler } from "@/lib/utils/commonFunc"
 import CartPopUp from "./CartPopUp/CartPopUp"
 
 
@@ -43,7 +43,9 @@ const Header = () => {
 					<li className='header__links__item'>
 						<CartPopUp />
 					</li>
-					<li className='header__links__item header__links__item--profile'><Link href='/profile' className="header__links__item__btn header__links__item__btn--profile" /></li>
+					<li className='header__links__item header__links__item--profile'>
+						<button className="nts-reset header__links__item__btn header__links__item__btn--profile" onClick={openAuthHandler}></button>
+					</li>
 				</ul>
 			</div>
 		</header>

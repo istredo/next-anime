@@ -1,3 +1,4 @@
+import { hideAuth, openAuth } from "@/ctx/auth";
 import { hideModalSearch, hideQuickView, hideSizes } from "@/ctx/modal";
 
 
@@ -70,4 +71,25 @@ export const closeSizeTable = (quickView: boolean) => {
 	}
 
 	hideSizes()
+}
+
+export const closeAuthHandler = () => {
+	removeOverflowBody();
+	hideAuth()
+}
+export const openAuthHandler = () => {
+	addOverflowBody()
+	openAuth()
+}
+
+export const checkPopupAuthHandler = (
+	modalQuickView: boolean,
+	modalSizeView: boolean
+) => {
+	if (modalQuickView || modalSizeView) {
+		hideAuth()
+		return
+	}
+
+	closeAuthHandler()
 }
