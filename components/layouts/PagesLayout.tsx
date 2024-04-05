@@ -1,27 +1,38 @@
 'use client'
 import React from 'react'
+import { EarthoOneProvider } from '@eartho/one-client-react'
 import { useUnit } from 'effector-react'
+import { Toaster } from 'react-hot-toast'
 import Layout from './Layout'
 import { $modalQuickView, $modalSizeView } from '@/ctx/modal'
 import { closeAuthHandler, closeQuickViewHandler, closeSizeTable } from '@/lib/utils/commonFunc'
-import { $openAuth, hideAuth } from '@/ctx/auth'
+import { $openAuth } from '@/ctx/auth'
+
 
 export const PagesLayout = ({ children }: { children: React.ReactNode }) => {
+	const [client, setClient] = React.useState(false)
 	const modalQuickView = useUnit($modalQuickView)
 	const modalSizeView = useUnit($modalSizeView)
 	const openAuth = useUnit($openAuth)
 	const sizesHandler = () => closeSizeTable(modalQuickView)
 	return (
-		<html lang="ru">
-			<body >
-				<Layout>
-					{children}
-				</Layout>
-				<div className={`quick-view-modal-overlay ${modalQuickView ? 'overlay-active' : ''}`} onClick={closeQuickViewHandler} />
-				<div className={`size-table-overlay ${modalSizeView ? 'overlay-active' : ''}`} onClick={sizesHandler} />
-				<div className={`auth-overlay ${openAuth ? 'overlay-active' : ''}`} onClick={closeAuthHandler} />
-			</body>
-		</html>
+		<>
+			{client &&
+				<EarthoOneProvider domain={''} clientId={`${process.env.NEXT_PUBLIC_OAUTH_ID}`}>
+					<html lang="ru">
+						<body >
+							<Layout>
+								{children}
+							</Layout>
+							<div className={`quick-view-modal-overlay ${modalQuickView ? 'overlay-active' : ''}`} onClick={closeQuickViewHandler} />
+							<div className={`size-table-overlay ${modalSizeView ? 'overlay-active' : ''}`} onClick={sizesHandler} />
+							<div className={`auth-overlay ${openAuth ? 'overlay-active' : ''}`} onClick={closeAuthHandler} />
+							<Toaster position='top-center' reverseOrder={false} />
+						</body>
+					</html>
+				</EarthoOneProvider>
+			}
+		</>
 	)
 }
 

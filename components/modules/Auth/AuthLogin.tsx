@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { IAuthSideProps, IForms } from '@/types/auth'
 import { useAuth } from '@/hooks/useAuth'
-import { signUpFx, signUpHandler } from '@/ctx/auth'
+import { signInFx, signInHandler } from '@/ctx/auth'
 import { AuthClose } from './AuthClose'
 import { AuthSocials } from './AuthSocials'
 
@@ -15,10 +15,9 @@ export const AuthLogin = ({
 	isSideActive,
 }: IAuthSideProps) => {
 	const { lang, translations } = useLang()
-	const { spinner, register, errors, handleSubmit, signOAuthHandler } = useAuth(signUpFx.pending, isSideActive, signUpHandler)
+	const { spinner, register, errors, handleSubmit, signOAuthHandler } = useAuth(signInFx.pending, isSideActive, signInHandler)
 	const submitForm = (data: IForms) =>
-		signUpHandler({
-			name: data.name,
+		signInHandler({
 			email: data.email,
 			password: data.password,
 			isOAuth: false,

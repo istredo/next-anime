@@ -2,6 +2,18 @@
 # yarn lockfile v1
 
 
+"@eartho/one-client-js@^2.0.5":
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/@eartho/one-client-js/-/one-client-js-2.0.6.tgz#d2f50bc0f039cfcb3dcd0ced5c67caa2648401a7"
+  integrity sha512-4/T54irSiHSI+Spf4ypKFIKuLJkeY1VevxS5tbj0P2JTQ/tNaWdg2/pjPIA4Q4czchEnFRfjLJX4ZjSqdJOQMA==
+
+"@eartho/one-client-react@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@eartho/one-client-react/-/one-client-react-2.0.2.tgz#f6aa1853ad8c814bc0339e2255a275028b9380c8"
+  integrity sha512-C0q/AZdE7fybpxag94bSbattVfAJKXQ+ioiejFA4WEesXHFiEnP98/rUCIDRAh9GsuDS0joAcLK+cnQQsM6HVA==
+  dependencies:
+    "@eartho/one-client-js" "^2.0.5"
+
 "@faker-js/faker@^8.4.1":
   version "8.4.1"
   resolved "https://registry.yarnpkg.com/@faker-js/faker/-/faker-8.4.1.tgz#5d5e8aee8fce48f5e189bf730ebd1f758f491451"
