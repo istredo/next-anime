@@ -15,10 +15,11 @@ export const PagesLayout = ({ children }: { children: React.ReactNode }) => {
 	const modalSizeView = useUnit($modalSizeView)
 	const openAuth = useUnit($openAuth)
 	const sizesHandler = () => closeSizeTable(modalQuickView)
+	React.useEffect(() => setClient(true), [])
 	return (
 		<>
-			{client &&
-				<EarthoOneProvider domain={''} clientId={`${process.env.NEXT_PUBLIC_OAUTH_ID}`}>
+			{client ? (
+				<EarthoOneProvider clientId={`${process.env.NEXT_PUBLIC_OAUTH_ID}`} domain={''}>
 					<html lang="ru">
 						<body >
 							<Layout>
@@ -31,8 +32,13 @@ export const PagesLayout = ({ children }: { children: React.ReactNode }) => {
 						</body>
 					</html>
 				</EarthoOneProvider>
-			}
-		</>
+			) :
+				<html lang='ru'>
+					<body>
+						<></>
+					</body>
+				</html>
+			}</>
 	)
 }
 
