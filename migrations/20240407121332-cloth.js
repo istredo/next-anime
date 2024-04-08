@@ -29,7 +29,6 @@ const lineImages = [
 
 ]
 
-console.log(getRandomValue(lineImages))
 const fabricTypes = [
 	'natural',
 	'non-natural',

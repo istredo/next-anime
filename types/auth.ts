@@ -5,6 +5,7 @@ export interface IForms {
 	email: string
 	password: string
 }
+
 export interface ISignUpFx {
 	password: string
 	email: string

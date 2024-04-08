@@ -31,6 +31,10 @@ export const signUpFx = createEffect(
 			})
 			return
 		}
+		await api.post('/api/users/email', {
+			password,
+			email,
+		})
 		const { data } = await api.post('api/users/signup', {
 			name, password, email
 		})
@@ -75,7 +79,6 @@ export const oauthFx = createEffect(
 				password,
 				email,
 			})
-
 			onAuthSuccess('Авторизация выполнена!', data)
 			return data.user
 		} catch (error) {

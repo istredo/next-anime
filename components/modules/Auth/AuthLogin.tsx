@@ -22,7 +22,6 @@ export const AuthLogin = ({
 			password: data.password,
 			isOAuth: false,
 		})
-
 	return (
 		<div className='card-back'>
 			<AuthClose />

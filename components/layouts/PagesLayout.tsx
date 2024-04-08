@@ -19,7 +19,7 @@ export const PagesLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<>
 			{client ? (
-				<EarthoOneProvider clientId={`${process.env.NEXT_PUBLIC_OAUTH_ID}`} domain={''}>
+				<EarthoOneProvider clientId={`${process.env.NEXT_PUBLIC_OAUTH_CLIENT_ID}`} domain='test_domain' >
 					<html lang="ru">
 						<body >
 							<Layout>
