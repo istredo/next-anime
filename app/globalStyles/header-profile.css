@@ -64,10 +64,10 @@
 }
 
 .header-profile__item__btn:hover {
-	color: #9466ff;
+	color: green;
 	transition: color 0.2s ease-in-out;
 }
 .header-profile__btn:hover {
-	color: #9466ff;
+	color: green;
 	transition: color 0.2s ease-in-out;
 }

@@ -3,7 +3,7 @@ import { forwardRef } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { clickOutside } from '@/lib/utils/clickOutside'
 import { useLang } from '@/hooks/useLang'
-import { useUserLogout } from '@/hooks/useLogout'
+import { useLogout } from '@/hooks/useLogout'
 import { useAvatar } from '@/hooks/useAvatar'
 import { IWrappedComponentProps } from '@/types/common'
 
@@ -12,7 +12,7 @@ import { IWrappedComponentProps } from '@/types/common'
 const HeaderProfile = forwardRef<HTMLDivElement, IWrappedComponentProps>(
 	({ open, setOpen }, ref) => {
 		const toggleHandler = () => setOpen(!open)
-		const logoutHandler = useUserLogout()
+		const logoutHandler = useLogout()
 		const { src, alt } = useAvatar()
 		const { lang, translations } = useLang()
 

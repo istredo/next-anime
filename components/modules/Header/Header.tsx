@@ -5,13 +5,15 @@ import { useLang } from "@/hooks/useLang"
 import '@/app/globalStyles/header.css'
 import Menu from "./Menu"
 import { showMenu, showModalSearch } from "@/ctx/modal"
-import { addOverflowBody, openAuthHandler } from "@/lib/utils/commonFunc"
+import { addOverflowBody, openAuthHandler, triggerLoginCheck } from "@/lib/utils/commonFunc"
 import CartPopUp from "./CartPopUp/CartPopUp"
 import HeaderProfile from "./HeaderProfile"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSpinner } from "@fortawesome/free-solid-svg-icons"
 import { useUnit } from "effector-react"
 import { $isAuth } from '@/ctx/auth'
+import { $user, loginCheckFx } from "@/ctx/user"
+import React from "react"
 
 const Header = () => {
 	const { lang, translations } = useLang()
@@ -19,12 +21,18 @@ const Header = () => {
 		addOverflowBody()
 		showMenu()
 	}
-	const loginCheckSpinner = false
+	const user = useUnit($user)
+	console.log(user)
+	const loginCheckSpinner = useUnit(loginCheckFx.pending)
 	const isAuth = useUnit($isAuth)
 	const searchHandler = () => {
 		addOverflowBody()
 		showModalSearch()
 	}
+
+	React.useEffect(() => {
+		triggerLoginCheck()
+	}, [])
 
 	return (
 

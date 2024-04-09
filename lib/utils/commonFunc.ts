@@ -1,6 +1,6 @@
-import { hideAuth, openAuth } from "@/ctx/auth";
+import { checkAuth, hideAuth, openAuth } from "@/ctx/auth";
 import { hideModalSearch, hideQuickView, hideSizes } from "@/ctx/modal";
-
+import { loginCheck } from '@/ctx/user'
 
 export const removeOverflowBody = () => {
 	const body = document.querySelector('body') as HTMLBodyElement;
@@ -39,7 +39,6 @@ export const shuffle = <T>(array: T[]) => {
 	}
 	return array;
 }
-
 
 export const formatPrice = (x: number) =>
 	x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
@@ -92,4 +91,24 @@ export const checkPopupAuthHandler = (
 	}
 
 	closeAuthHandler()
+}
+export const isUserAuth = () => {
+	const auth = JSON.parse(localStorage.getItem('auth') as string)
+
+	if (!auth?.accessToken) {
+		checkAuth(false)
+		return false
+	}
+
+	return true
+}
+
+export const triggerLoginCheck = () => {
+	if (!isUserAuth()) {
+		return
+	}
+
+	const auth = JSON.parse(localStorage.getItem('auth') as string)
+
+	loginCheck({ jwt: auth.accessToken })
 }

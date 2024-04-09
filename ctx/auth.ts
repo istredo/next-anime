@@ -86,6 +86,14 @@ export const oauthFx = createEffect(
 		}
 	}
 )
+
+export const refreshTokenFx = createEffect(async ({ jwt }: { jwt: string }) => {
+	const { data } = await api.post('/api/users/refresh', { jwt })
+
+	localStorage.setItem('auth', JSON.stringify(data))
+
+	return data
+})
 export const $auth = auth
 	.createStore({})
 	.on(signUpFx.done, (_, { result }) => result)
