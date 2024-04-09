@@ -5,9 +5,9 @@ export async function POST(req: Request) {
 	const res = await req.json()
 	try {
 		await sendMail(
-			'Rostelecom',
-			"uvarov6799@gmail.com",
-			`Проверка связи`
+			'Anime Shop',
+			res.email,
+			`Ваши данные для входа - пароль: ${res.password}, логин: ${res.email}`
 		)
 		return NextResponse.json({ message: 'Success' })
 	} catch (err) {
