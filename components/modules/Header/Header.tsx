@@ -7,7 +7,11 @@ import Menu from "./Menu"
 import { showMenu, showModalSearch } from "@/ctx/modal"
 import { addOverflowBody, openAuthHandler } from "@/lib/utils/commonFunc"
 import CartPopUp from "./CartPopUp/CartPopUp"
-
+import HeaderProfile from "./HeaderProfile"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faSpinner } from "@fortawesome/free-solid-svg-icons"
+import { useUnit } from "effector-react"
+import { $isAuth } from '@/ctx/auth'
 
 const Header = () => {
 	const { lang, translations } = useLang()
@@ -15,7 +19,8 @@ const Header = () => {
 		addOverflowBody()
 		showMenu()
 	}
-
+	const loginCheckSpinner = false
+	const isAuth = useUnit($isAuth)
 	const searchHandler = () => {
 		addOverflowBody()
 		showModalSearch()
@@ -44,7 +49,16 @@ const Header = () => {
 						<CartPopUp />
 					</li>
 					<li className='header__links__item header__links__item--profile'>
-						<button className="nts-reset header__links__item__btn header__links__item__btn--profile" onClick={openAuthHandler}></button>
+						{isAuth ? (
+							<HeaderProfile />
+						) : loginCheckSpinner ? (
+							<FontAwesomeIcon icon={faSpinner} spin />
+						) : (
+							<button
+								className='btn-reset header__links__item__btn header__links__item__btn--profile'
+								onClick={openAuthHandler}
+							/>
+						)}
 					</li>
 				</ul>
 			</div>

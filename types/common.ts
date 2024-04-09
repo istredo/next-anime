@@ -29,3 +29,8 @@ export interface ISelectedSizes {
 	type: string
 	className?: string
 }
+
+export interface IWrappedComponentProps {
+	open: boolean
+	setOpen: (arg0: boolean) => void
+}

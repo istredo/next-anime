@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useUnit } from 'effector-react'
 
 import { useMediaQuery } from '@/hooks/useMediaQuery'
-import Header from '../modules/Header/Header'
+import Header from "../modules/Header/Header"
 import MobileNavbar from '../modules/MobileNavbar/MobileNavbar'
 import { $modalQuickView, $modalSearch, $modalSizeView } from '@/ctx/modal'
 import ModalSearch from '../modules/Header/ModalSearch'

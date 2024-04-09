@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { $modalCatalog, hideModalCatalog } from '@/ctx/modal'
 import { useLang } from '@/hooks/useLang'
 import { useMenuAnimation } from '@/hooks/useMenuAnimation'
-import Header from './Header'
+import Header from "./Header"
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import Accordion from '../Accordion/Accordion'
 import CatalogMenuButton from './CatalogMenuButton'

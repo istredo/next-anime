@@ -86,7 +86,6 @@
 
 .header__links__item--profile {
 	border-radius: 50%;
-	overflow: hidden;
 }
 
 @media (max-width: 800px) {
