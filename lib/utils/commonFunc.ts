@@ -1,6 +1,10 @@
 import { checkAuth, hideAuth, openAuth } from "@/ctx/auth";
-import { hideModalSearch, hideQuickView, hideSizes } from "@/ctx/modal";
+import { setCurrentProduct } from "@/ctx/goods";
+import { hideModalSearch, hideQuickView, hideSizes, showSizes } from "@/ctx/modal";
+import { setSizes } from "@/ctx/sizeTable";
 import { loginCheck } from '@/ctx/user'
+import { ICartItem } from "@/types/cart";
+import { IProduct } from "@/types/common";
 
 export const removeOverflowBody = () => {
 	const body = document.querySelector('body') as HTMLBodyElement;
@@ -111,4 +115,14 @@ export const triggerLoginCheck = () => {
 	const auth = JSON.parse(localStorage.getItem('auth') as string)
 
 	loginCheck({ jwt: auth.accessToken })
+}
+
+export const isItemInList = (array: ICartItem[], productId: string) =>
+	array.some((item) => item.productId === productId)
+
+export const showSizesHandler = (product: IProduct) => {
+	setCurrentProduct(product)
+	setSizes({ sizes: product.sizes, type: product.type })
+	addOverflowBody()
+	showSizes()
 }

@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSpinner } from "@fortawesome/free-solid-svg-icons"
 import { useUnit } from "effector-react"
 import { $isAuth } from '@/ctx/auth'
-import { $user, loginCheckFx } from "@/ctx/user"
+import { loginCheckFx } from "@/ctx/user"
 import React from "react"
 
 const Header = () => {
@@ -21,8 +21,7 @@ const Header = () => {
 		addOverflowBody()
 		showMenu()
 	}
-	const user = useUnit($user)
-	console.log(user)
+
 	const loginCheckSpinner = useUnit(loginCheckFx.pending)
 	const isAuth = useUnit($isAuth)
 	const searchHandler = () => {

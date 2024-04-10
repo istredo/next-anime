@@ -1,6 +1,8 @@
+import { addProductToCartFx, getCartItemsFx } from "@/api/cart"
 import { JWTError } from "@/const/jwt"
 import { refreshTokenFx } from "@/ctx/auth"
 import { loginCheckFx } from "@/ctx/user"
+import { IAddProductToCartFx } from "@/types/cart"
 
 export const handleJWTError = async (
 	errorName: string,
@@ -16,6 +18,15 @@ export const handleJWTError = async (
 			const { repeatRequestMethodName, payload } = repeatRequestAfterRefreshData
 
 			switch (repeatRequestMethodName) {
+				case 'getCartItemsFx':
+					return getCartItemsFx({
+						jwt: newTokens.accessToken,
+					})
+				case 'addProductToCartFx':
+					return addProductToCartFx({
+						...(payload as IAddProductToCartFx),
+						jwt: newTokens.accessToken,
+					})
 				case 'loginCheckFx':
 					await loginCheckFx({
 						jwt: newTokens.accessToken,

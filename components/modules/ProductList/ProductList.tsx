@@ -14,13 +14,18 @@ import { IProduct } from '@/types/common'
 import { IproductListProps } from '@/types/modules'
 import { showQuickView } from '@/ctx/modal'
 import { setCurrentProduct } from '@/ctx/goods'
+import { productsWithoutSizes } from '@/const/product'
+import { useCartAction } from '@/hooks/useCartAction'
+import { addProductToCartBySizeTable } from '@/lib/utils/cart'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 
 
 const ProductList = ({ item, title }: IproductListProps) => {
 	const { lang, translations } = useLang()
 	const isTitleNew = title === translations[lang].main_page.new_title
 	const isMedia800 = useMediaQuery(800)
-
+	const { addToCartSpinner, isProductInCart, setAddToCartSpinner } = useCartAction()
 	const randomImage = (item: IProduct) => {
 		let currentIndex = item.images.length
 		const randomIndex = Math.floor(Math.random() * currentIndex)
@@ -31,7 +36,9 @@ const ProductList = ({ item, title }: IproductListProps) => {
 		showQuickView()
 		setCurrentProduct(item)
 	}
-
+	const addToCart = () => {
+		addProductToCartBySizeTable(item, setAddToCartSpinner, 1)
+	}
 	return (
 		<>
 			{item.characteristics.collection === 'line' && item.type === 't-shirt' ?
@@ -109,9 +116,16 @@ const ProductList = ({ item, title }: IproductListProps) => {
 							{formatPrice(+item.price)} ₽
 						</span>
 					</div>
-					<button className={`btn-reset ${styles.list__item__cart}`}>
-						{translations[lang].product.to_cart}
-					</button>
+					{productsWithoutSizes.includes(item.type)
+						? <button onClick={addToCart} className={`btn-reset ${styles.list__item__cart} ${isProductInCart ? styles.list__item__cart_added : ''}`}
+							disabled={addToCartSpinner} style={addToCartSpinner ? { minWidth: 125, height: 48 } : {}}>
+							{addToCartSpinner ? <FontAwesomeIcon icon={faSpinner} spin color='#fff' />
+								: isProductInCart ? translations[lang].product.in_cart : translations[lang].product.to_cart}
+						</button>
+						: <button className={`btn-reset ${styles.list__item__cart}`} onClick={addToCart}>
+							{translations[lang].product.to_cart}
+						</button>}
+
 				</li>
 			}
 		</>

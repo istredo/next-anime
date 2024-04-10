@@ -5,6 +5,7 @@ import {
 	findUserByEmail,
 	parseJwt,
 } from '@/lib/utils/api-routes'
+import { IUser } from '@/types/auth'
 
 export async function GET(req: Request) {
 	try {
@@ -21,12 +22,12 @@ export async function GET(req: Request) {
 		const user = (await findUserByEmail(
 			db,
 			parseJwt(token as string).email
-		))
+		)) as unknown as IUser
 
 		return NextResponse.json({
 			status: 200,
 			message: 'token is valid',
-			user,
+			user: { email: user.email, name: user.name, _id: user?._id },
 		})
 	} catch (error) {
 		throw new Error((error as Error).message)
