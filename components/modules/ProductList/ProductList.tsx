@@ -5,7 +5,7 @@ import { ProductLabel } from './ProductLabel'
 import { Dialog } from '@/components/elems/Dialog'
 import { ProductItemAction } from '@/components/elems/ProductItemAction'
 import { ProductAvailable } from '@/components/elems/ProductAvailable'
-import { addOverflowBody, formatPrice } from '@/lib/utils/commonFunc'
+import { addOverflowBody, formatPrice, isItemInList } from '@/lib/utils/commonFunc'
 import { useLang } from '@/hooks/useLang'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import styles from '@/styles/product-list-item/index.module.scss'
@@ -25,7 +25,9 @@ const ProductList = ({ item, title }: IproductListProps) => {
 	const { lang, translations } = useLang()
 	const isTitleNew = title === translations[lang].main_page.new_title
 	const isMedia800 = useMediaQuery(800)
-	const { addToCartSpinner, isProductInCart, setAddToCartSpinner } = useCartAction()
+	const { addToCartSpinner, currentCartByAuth, setAddToCartSpinner } = useCartAction()
+	const isProductInCart = isItemInList(currentCartByAuth, item._id)
+
 	const randomImage = (item: IProduct) => {
 		let currentIndex = item.images.length
 		const randomIndex = Math.floor(Math.random() * currentIndex)

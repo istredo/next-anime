@@ -17,7 +17,9 @@ export const useCartAction = (isSizeTable = false) => {
 	const cartItemBySize = currentCartItems.find(
 		(item) => item.size === selectSize
 	)
-	const isProductInCart = isItemInList(currentCartByAuth, product._id)
+	const isProductInCart = currentCartByAuth.find(
+		(item) => item.productId === product._id && item.size === selectSize
+	)
 
 	const cartHandler = (countFromCounter?: number) => {
 		if (isProductInCart) {
