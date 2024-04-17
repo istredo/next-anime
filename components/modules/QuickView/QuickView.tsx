@@ -18,14 +18,14 @@ import stylesItem from '@/styles/product-list-item/index.module.scss'
 import { ProductItemAction } from '@/components/elems/ProductItemAction'
 
 export const QuickView = () => {
-	const { product, selectSize, setSelectSize } = useCartAction()
+	const { product, selectSize, setSelectSize, cartHandler, cartItemBySize, addToCartSpinner, updateCountSpinner, allCurrentCartItemCount } = useCartAction()
 	const { lang, translations } = useLang()
 	const images = useProductImages(product)
 	const modalHandler = () => {
 		removeOverflowBody()
 		hideQuickView()
 	}
-
+	const addToCart = () => cartHandler(+(cartItemBySize?.count || 1))
 	return (
 		<div className={styles.modal}>
 			<button
@@ -105,8 +105,15 @@ export const QuickView = () => {
 										</div>
 									)}
 								<CartButton
-									className={styles.bottom__add}
-									text={translations[lang].product.to_cart} />
+									className={styles.modal__right__bottom__add}
+									text={translations[lang].product.to_cart}
+									cartHandler={addToCart}
+									addToCartSpinner={addToCartSpinner || updateCountSpinner}
+									btnDisabled={
+										addToCartSpinner ||
+										updateCountSpinner ||
+										allCurrentCartItemCount === +product.inStock
+									} />
 							</div>
 						</div>
 					</div>

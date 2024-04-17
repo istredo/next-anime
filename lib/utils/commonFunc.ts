@@ -126,3 +126,10 @@ export const showSizesHandler = (product: IProduct) => {
 	addOverflowBody()
 	showSizes()
 }
+
+export const getCartItemCountBySize = (
+	cartItems: ICartItem[],
+	currentSize: string
+) =>
+	cartItems.find((item) => item.size === currentSize.toLocaleLowerCase())
+		?.count || 0

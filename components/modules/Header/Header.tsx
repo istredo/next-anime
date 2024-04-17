@@ -14,6 +14,8 @@ import { useUnit } from "effector-react"
 import { $isAuth } from '@/ctx/auth'
 import { loginCheckFx } from "@/ctx/user"
 import React from "react"
+import { setLang } from "@/ctx/lang"
+import { addProductsFromLSToCart, setCartFromLS } from "@/ctx/cart"
 
 const Header = () => {
 	const { lang, translations } = useLang()
@@ -30,9 +32,33 @@ const Header = () => {
 	}
 
 	React.useEffect(() => {
+		const cart = JSON.parse(localStorage.getItem('cart') as string)
+		const lang = JSON.parse(localStorage.getItem('lang') as string)
+		if (lang) {
+			if (lang === 'ru' || lang === 'en') {
+				setLang(lang)
+			}
+		}
+		if (cart) {
+			setCartFromLS(cart)
+		}
 		triggerLoginCheck()
 	}, [])
+	React.useEffect(() => {
+		if (isAuth) {
+			const auth = JSON.parse(localStorage.getItem('auth') as string)
+			const cartFromLS = JSON.parse(localStorage.getItem('cart') as string)
 
+			if (cartFromLS && Array.isArray(cartFromLS)) {
+				addProductsFromLSToCart({
+					jwt: auth.accessToken,
+					cartItems: cartFromLS,
+				})
+			}
+
+
+		}
+	}, [isAuth])
 	return (
 
 		<header className="header" >

@@ -34,3 +34,9 @@ export interface IWrappedComponentProps {
 	open: boolean
 	setOpen: (arg0: boolean) => void
 }
+
+export interface IBaseEffectProps {
+	jwt: string
+	id: string
+	setSpinner: (arg0: boolean) => void
+}

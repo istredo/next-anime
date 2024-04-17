@@ -7,6 +7,7 @@ import { $setSizes } from "@/ctx/sizeTable"
 import { $modalQuickView } from "@/ctx/modal"
 import styles from '@/styles/sizes/index.module.scss'
 import { CartButton } from "../ProductList/CartButton"
+import ProductCount from "../ProductList/ProductCount"
 
 
 
@@ -18,10 +19,11 @@ export const Sizes = () => {
 	const [sizeL, setSizeL] = React.useState(false)
 	const [sizeXl, setSizeXl] = React.useState(false)
 	const [sizeXxl, setSizeXxl] = React.useState(false)
-	const { selectSize, setSelectSize, product } = useCartAction()
+	const { selectSize, setSelectSize, cartHandler, cartItemBySize, addToCartSpinner, currentCartItems, updateCountSpinner } = useCartAction(true)
 	const productSizes = useUnit($setSizes)
 	const quickView = useUnit($modalQuickView)
 	const isHat = productSizes.type === 'headdress'
+	const isSizesSelected = sizeS || sizeM || sizeL || sizeXl || sizeXxl || selectSize
 	const sizeSHandler = () => {
 		setSelectSize('s')
 		setSizeS(true)
@@ -171,6 +173,7 @@ export const Sizes = () => {
 			isInFavorites: false,
 		},
 	]
+	const addToCart = () => cartHandler(+(cartItemBySize?.count || 1))
 
 	const closeSizeHandler = () => closeSizeTable(quickView)
 	const trProps = (
@@ -233,7 +236,12 @@ export const Sizes = () => {
 							? headdressSizes.map((item) => (
 								<tr key={item.id} {...(trProps(item) as React.HTMLAttributes<HTMLTableRowElement>)}>
 									<td>{item.headCircumference}</td>
-									<td>{item.manufacturerSize}</td>
+									<td>
+										<ProductCount
+											size={item.manufacturerSize}
+											products={currentCartItems}
+										/>
+										{item.manufacturerSize}</td>
 								</tr>))
 							: dressSizes.map((item) => (
 								<tr key={item.id}  {...(trProps(item) as React.HTMLAttributes<HTMLTableRowElement>)}>
@@ -241,7 +249,12 @@ export const Sizes = () => {
 									<td>{item.manufacturerSize}</td>
 									<td>{item.bust}</td>
 									<td>{item.waist}</td>
-									<td>{item.hipGirth}</td>
+									<td>
+										<ProductCount
+											size={item.manufacturerSize}
+											products={currentCartItems}
+										/>
+										{item.hipGirth}</td>
 								</tr>))
 						}
 					</tbody>
@@ -249,7 +262,11 @@ export const Sizes = () => {
 			</div>
 			<CartButton
 				className={styles.size_table__btn}
-				text={translations[lang].product.to_cart} />
+				text={translations[lang].product.to_cart}
+				cartHandler={addToCart}
+				addToCartSpinner={addToCartSpinner || updateCountSpinner}
+				btnDisabled={!isSizesSelected || addToCartSpinner || updateCountSpinner}
+			/>
 		</div>
 	)
 }
