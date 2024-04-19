@@ -18,7 +18,7 @@ import stylesItem from '@/styles/product-list-item/index.module.scss'
 import { ProductItemAction } from '@/components/elems/ProductItemAction'
 
 export const QuickView = () => {
-	const { product, selectSize, setSelectSize, cartHandler, cartItemBySize, addToCartSpinner, updateCountSpinner, allCurrentCartItemCount } = useCartAction()
+	const { product, selectSize, setSelectSize, cartHandler, currentCartItems, cartItemBySize, addToCartSpinner, updateCountSpinner, allCurrentCartItemCount } = useCartAction()
 	const { lang, translations } = useLang()
 	const images = useProductImages(product)
 	const modalHandler = () => {
@@ -75,7 +75,7 @@ export const QuickView = () => {
 										currentSize={[key, value]}
 										selectSize={selectSize}
 										setSelectSize={setSelectSize}
-										currentCartItems={[]}
+										currentCartItems={currentCartItems}
 									/>
 								))}
 							</ul>

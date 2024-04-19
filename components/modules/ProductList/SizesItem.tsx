@@ -2,6 +2,7 @@
 
 import styles from '@/styles/quick-view/index.module.scss'
 import { ISizesItemProps } from '@/types/goods'
+import ProductCount from './ProductCount'
 export const SizesItem = ({
 	currentSize,
 	selectSize,
@@ -23,6 +24,11 @@ export const SizesItem = ({
 						: 'rgba(255, 255, 255, 0.10)',
 			}}
 		>
+			<ProductCount
+				size={currentSize[0]}
+				products={currentCartItems}
+				withCartIcon={false}
+			/>
 			<button className='btn-reset' onClick={sizeHandler}>
 				{currentSize[0].toLocaleUpperCase()}
 			</button>
