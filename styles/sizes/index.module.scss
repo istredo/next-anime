@@ -49,8 +49,8 @@
 			position: absolute;
 			top: 0;
 			transition: background-color 0.2s ease-in-out;
-			-webkit-mask: url(/img/close-small.svg) no-repeat 50% 50%;
-			mask: url(/img/close-small.svg) no-repeat 50% 50%;
+			-webkit-mask: url(/img/close-sm.svg) no-repeat 50% 50%;
+			mask: url(/img/close-sm.svg) no-repeat 50% 50%;
 		}
 
 		&:hover::before {

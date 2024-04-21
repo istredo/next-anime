@@ -16,16 +16,18 @@ import { CartButton } from '../ProductList/CartButton'
 import styles from '@/styles/quick-view/index.module.scss'
 import stylesItem from '@/styles/product-list-item/index.module.scss'
 import { ProductItemAction } from '@/components/elems/ProductItemAction'
+import { ICartItem } from '@/types/cart'
 
 export const QuickView = () => {
-	const { product, selectSize, setSelectSize, cartHandler, currentCartItems, cartItemBySize, addToCartSpinner, updateCountSpinner, allCurrentCartItemCount } = useCartAction()
+	const { product, selectSize, setSelectSize, cartHandler, currentCartItems, isProductInCart, setCount, count,
+		cartItemBySize, addToCartSpinner, updateCountSpinner, allCurrentCartItemCount } = useCartAction()
 	const { lang, translations } = useLang()
 	const images = useProductImages(product)
 	const modalHandler = () => {
 		removeOverflowBody()
 		hideQuickView()
 	}
-	const addToCart = () => cartHandler(+(cartItemBySize?.count || 1))
+	const addToCart = () => cartHandler(count)
 	return (
 		<div className={styles.modal}>
 			<button
@@ -94,18 +96,23 @@ export const QuickView = () => {
 									(
 										<ProductCounter
 											className={`counter ${styles.bottom__counter}`}
-											count={1}
+											count={count}
+											totalCount={+product.inStock}
+											initialCount={+(isProductInCart?.count || 1)}
+											setCount={setCount}
+											cartItem={isProductInCart as ICartItem}
+											updateCountAsync={false}
 										/>
 									) : (
 										<div
 											className={`counter ${styles.bottom__counter}`}
 											style={{ justifyContent: 'center' }}
 										>
-											<span> {translations[lang].product.total_in_cart} 0</span>
+											<span> {translations[lang].product.total_in_cart} {allCurrentCartItemCount}</span>
 										</div>
 									)}
 								<CartButton
-									className={styles.modal__right__bottom__add}
+									className={styles.bottom__add}
 									text={translations[lang].product.to_cart}
 									cartHandler={addToCart}
 									addToCartSpinner={addToCartSpinner || updateCountSpinner}

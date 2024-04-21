@@ -3,7 +3,7 @@ import api from './apiInstance'
 import { handleJWTError } from "@/lib/utils/errors"
 import { IAddProductToCartFx, ICartItem, IUpdateCartItemCountFx } from "@/types/cart"
 import toast from "react-hot-toast"
-import { loadCartItems } from "@/ctx/cart"
+
 export const getCartItemsFx = createEffect(async ({ jwt }: { jwt: string }) => {
 	try {
 		const { data } = await api.get('/api/cart/all', {
