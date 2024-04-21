@@ -84,7 +84,7 @@
 	align-items: self-end;
 	padding-left: 20px;
 	justify-content: center;
-	background-image: url("/img/empty-cart.svg");
+	background-image: url(/img/empty-cart.svg);
 	background-repeat: no-repeat;
 	background-position: center center;
 	color: #e8e9ea;

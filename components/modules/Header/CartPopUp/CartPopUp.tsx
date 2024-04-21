@@ -1,15 +1,23 @@
+import { getCartItemsFx } from '@/api/cart'
+import { useCartByAuth } from '@/hooks/useCartByAuth'
 import { useLang } from '@/hooks/useLang'
 import { clickOutside } from '@/lib/utils/clickOutside'
 import { IWrappedComponentProps } from '@/types/modules'
+import { useUnit } from 'effector-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 import React, { forwardRef } from 'react'
+import CartItem from './CartItem'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 
 const CartPopUp = forwardRef<HTMLDivElement, IWrappedComponentProps>(
 	({ open, setOpen }, ref) => {
 		const showPopUpHandler = () => setOpen(true)
 		const hidePopUpHandler = () => setOpen(false)
 		const { lang, translations } = useLang()
+		const spinner = useUnit(getCartItemsFx.pending)
+		const currentCartByAuth = useCartByAuth()
 
 		return (
 			<div className="cart-popup" ref={ref}>
@@ -31,9 +39,34 @@ const CartPopUp = forwardRef<HTMLDivElement, IWrappedComponentProps>(
 							<h3 className='cart-popup__title'>
 								{translations[lang].breadcrumbs.cart}
 							</h3>
-							<ul className='list-reset cart-popup__cart-list'>
-								<li className='cart-popup__cart-list__empty-cart' />
-							</ul>
+							{spinner ? (
+								<div className='cart-popup__spinner'>
+									<FontAwesomeIcon
+										icon={faSpinner}
+										spin
+										color='#fff'
+										size='3x'
+									/>
+								</div>
+							) : (<ul className='list-reset cart-popup__cart-list'>
+								<AnimatePresence>
+									{currentCartByAuth.length ? (
+										currentCartByAuth.map((item) => (
+											<motion.li
+												key={item._id || item.clientId}
+												initial={{ opacity: 0 }}
+												animate={{ opacity: 1 }}
+												exit={{ opacity: 0 }}
+												className='cart-list__item'
+											>
+												<CartItem item={item} />
+											</motion.li>
+										))
+									) : (
+										<li className='cart-popup__cart-list__empty-cart' />
+									)}
+								</AnimatePresence>
+							</ul>)}
 							<div className='cart-popup__footer'>
 								<div className='cart-popup__footer__inner'>
 									<span>{translations[lang].common.order_price}:</span>

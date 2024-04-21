@@ -32,3 +32,9 @@ export interface IAddProductFromLSFx {
 export interface IUpdateCartItemCountFx extends IBaseEffectProps {
 	count: number
 }
+
+export interface IDeleteItemBtn {
+	btnDisabled: boolean
+	callback: VoidFunction
+	className?: string
+}
