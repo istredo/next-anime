@@ -1,15 +1,17 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+import Link from 'next/link'
+import React, { forwardRef } from 'react'
+import { useUnit } from 'effector-react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { getCartItemsFx } from '@/api/cart'
 import { useCartByAuth } from '@/hooks/useCartByAuth'
 import { useLang } from '@/hooks/useLang'
 import { clickOutside } from '@/lib/utils/clickOutside'
 import { IWrappedComponentProps } from '@/types/modules'
-import { useUnit } from 'effector-react'
-import { AnimatePresence, motion } from 'framer-motion'
-import Link from 'next/link'
-import React, { forwardRef } from 'react'
 import CartItem from './CartItem'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { useTotalPrice } from '@/hooks/useTotalPrice'
+import { formatPrice } from '@/lib/utils/commonFunc'
 
 const CartPopUp = forwardRef<HTMLDivElement, IWrappedComponentProps>(
 	({ open, setOpen }, ref) => {
@@ -18,6 +20,7 @@ const CartPopUp = forwardRef<HTMLDivElement, IWrappedComponentProps>(
 		const { lang, translations } = useLang()
 		const spinner = useUnit(getCartItemsFx.pending)
 		const currentCartByAuth = useCartByAuth()
+		const { animatedPrice } = useTotalPrice()
 
 		return (
 			<div className="cart-popup" ref={ref}>
@@ -70,7 +73,7 @@ const CartPopUp = forwardRef<HTMLDivElement, IWrappedComponentProps>(
 							<div className='cart-popup__footer'>
 								<div className='cart-popup__footer__inner'>
 									<span>{translations[lang].common.order_price}:</span>
-									<span>0 ₽</span>
+									<span>{formatPrice(animatedPrice)} ₽</span>
 								</div>
 								<Link href='/order' className='cart-popup__footer__link'>
 									{translations[lang].breadcrumbs.order}
