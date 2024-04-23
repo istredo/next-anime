@@ -19,6 +19,7 @@ import { useCartAction } from '@/hooks/useCartAction'
 import { addProductToCartBySizeTable } from '@/lib/utils/cart'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+import React from 'react'
 
 
 const ProductList = ({ item, title }: IproductListProps) => {
@@ -28,11 +29,13 @@ const ProductList = ({ item, title }: IproductListProps) => {
 	const { addToCartSpinner, currentCartByAuth, setAddToCartSpinner } = useCartAction()
 	const isProductInCart = isItemInList(currentCartByAuth, item._id)
 
-	const randomImage = (item: IProduct) => {
+	const randomImage = React.useMemo(() => {
 		let currentIndex = item.images.length
 		const randomIndex = Math.floor(Math.random() * currentIndex)
 		return item.images[randomIndex]
-	}
+	}, [item.images])
+
+
 	const quickViewHandler = () => {
 		addOverflowBody()
 		showQuickView()
@@ -51,17 +54,13 @@ const ProductList = ({ item, title }: IproductListProps) => {
 						</span>
 						<Dialog dialogClassName={styles.list__item_ad__dialog} dialogRectClassName={styles.list__item_ad__dialog__rect} />
 						<div className={styles.list__item_ad__img}>
-							<Image src={randomImage(item)} alt={item.name} className={styles.list__image} width="220"
+							<Image src={randomImage} alt={item.name} className={styles.list__image} width="220"
 								height="250" priority={false} />
 
 						</div>
 						<p className={styles.list__item_ad__title}>
 							<span>
 								{translations[lang].main_page.category_office} «Super»{' '}
-								{/* {
-									//@ts-ignore
-									translations[lang].main_page[item.images[0].split('/img/').join('').split('-')[0]]
-								} */}
 							</span>
 							<span>{formatPrice(+item.price)}₽</span>
 						</p>
@@ -100,9 +99,10 @@ const ProductList = ({ item, title }: IproductListProps) => {
 						href={`/catalog/${item.category}/${item._id}`}
 						className={styles.list__item__img}>
 
-						<Image src={randomImage(item)} alt={item.name} className={styles.list__image} width="310"
+						<Image src={randomImage} alt={item.name} className={styles.list__image} width="310"
 							height="300" priority={false}
 						/>
+
 					</Link>
 					<div className={styles.list__item__inner}>
 						<h3 className={styles.list__item__title}>

@@ -1,9 +1,11 @@
-import { addProductToCartFx, getCartItemsFx, updateCartItemCountFx } from "@/api/cart"
-import { handleJWTError } from "@/lib/utils/errors"
+import { addProductToCartFx, deleteCartItemFx, getCartItemsFx, updateCartItemCountFx } from "@/api/cart"
 import { IAddProductFromLSFx, IAddProductToCartFx, ICartItem, IUpdateCartItemCountFx } from "@/types/cart"
 import { createDomain, createEffect, sample } from "effector"
-import api from '@/api/apiInstance'
 import toast from "react-hot-toast"
+
+import api from '@/api/apiInstance'
+import { handleJWTError } from "@/lib/utils/errors"
+import { IBaseEffectProps } from "@/types/common"
 export const addProductsFromLSToCartFx = createEffect(
 	async ({ jwt, cartItems }: IAddProductFromLSFx) => {
 		try {
@@ -41,6 +43,7 @@ export const addProductsFromLSToCart =
 	cart.createEvent<IAddProductFromLSFx>()
 export const updateCartItemCount = cart.createEvent<IUpdateCartItemCountFx>()
 export const setTotalPrice = cart.createEvent<number>()
+export const deleteProductFromCart = cart.createEvent<IBaseEffectProps>()
 
 export const $cart = cart
 	.createStore<ICartItem[]>([])
@@ -56,6 +59,8 @@ export const $cart = cart
 			item._id === result.id ? { ...item, count: result.count } : item
 		)
 	)
+	.on(deleteCartItemFx.done, (cart, { result }) =>
+		cart.filter((item) => item._id !== result.id))
 
 export const $cartFromLs = cart
 	.createStore<ICartItem[]>([])
@@ -91,4 +96,11 @@ sample({
 	source: $cart,
 	fn: (_, data) => data,
 	target: updateCartItemCountFx,
+})
+
+sample({
+	clock: deleteProductFromCart,
+	source: $cart,
+	fn: (_, data) => data,
+	target: deleteCartItemFx,
 })

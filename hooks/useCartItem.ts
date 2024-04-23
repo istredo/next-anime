@@ -2,6 +2,8 @@ import { ICartItem } from "@/types/cart"
 import React from "react"
 import { usePriceAction } from "./usePriceAction"
 import { usePriceAnimation } from "./usePricceAnimation"
+import { deleteProductFromLS, isUserAuth } from "@/lib/utils/commonFunc"
+import { deleteProductFromCart, setCartFromLS } from "@/ctx/cart"
 
 export const useCartItem = (cartItem: ICartItem) => {
 	const [deleteSpinner, setDeleteSpinner] = React.useState(false)
@@ -26,6 +28,35 @@ export const useCartItem = (cartItem: ICartItem) => {
 		setTo(price - +cartItem.price)
 		decreasePrice()
 	}
+
+	const handleDeleteCartItem = () => {
+		if (!isUserAuth()) {
+			deleteProductFromLS(
+				cartItem.clientId,
+				'cart',
+				setCartFromLS,
+				setShouldShowEmpty,
+				'Удалено из карзины!'
+			)
+			return
+		}
+
+		const auth = JSON.parse(localStorage.getItem('auth') as string)
+
+		deleteProductFromLS(
+			cartItem.clientId,
+			'cart',
+			setCartFromLS,
+			setShouldShowEmpty,
+			'',
+			false
+		)
+		deleteProductFromCart({
+			jwt: auth.accessToken,
+			id: cartItem._id,
+			setSpinner: setDeleteSpinner,
+		})
+	}
 	return {
 		deleteSpinner,
 		price,
@@ -37,6 +68,11 @@ export const useCartItem = (cartItem: ICartItem) => {
 		decreasePriceWithAnimation,
 		setFrom,
 		setTo,
-		animatedPrice
+		animatedPrice,
+		handleDeleteCartItem
 	}
-} 
+}
+
+function setShouldShowEmpty(arg0: boolean): void {
+	throw new Error("Function not implemented.")
+}

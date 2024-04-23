@@ -1,8 +1,10 @@
 import { createEffect } from "effector"
+import toast from "react-hot-toast"
+
 import api from './apiInstance'
 import { handleJWTError } from "@/lib/utils/errors"
 import { IAddProductToCartFx, ICartItem, IUpdateCartItemCountFx } from "@/types/cart"
-import toast from "react-hot-toast"
+import { IBaseEffectProps } from "@/types/common"
 
 export const getCartItemsFx = createEffect(async ({ jwt }: { jwt: string }) => {
 	try {
@@ -75,6 +77,32 @@ export const updateCartItemCountFx = createEffect(
 				return newData
 			}
 
+			return data
+		} catch (error) {
+			toast.error((error as Error).message)
+		} finally {
+			setSpinner(false)
+		}
+	}
+)
+
+export const deleteCartItemFx = createEffect(
+	async ({ jwt, id, setSpinner }: IBaseEffectProps) => {
+		try {
+			setSpinner(true)
+			const { data } = await api.delete(`/api/cart/delete?id=${id}`, {
+				headers: { Authorization: `Bearer ${jwt}` },
+			})
+
+			if (data?.error) {
+				const newData: { id: string } = await handleJWTError(data.error.name, {
+					repeatRequestMethodName: 'deleteCartItemFx',
+					payload: { id, setSpinner },
+				})
+				return newData
+			}
+
+			toast.success('Удалено из корзины!')
 			return data
 		} catch (error) {
 			toast.error((error as Error).message)

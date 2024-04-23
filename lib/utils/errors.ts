@@ -1,9 +1,10 @@
-import { addProductToCartFx, getCartItemsFx } from "@/api/cart"
+import { addProductToCartFx, deleteCartItemFx, getCartItemsFx } from "@/api/cart"
 import { JWTError } from "@/const/jwt"
 import { refreshTokenFx } from "@/ctx/auth"
-import { addProductFromLSFx } from "@/ctx/cart"
+import { addProductsFromLSToCart } from "@/ctx/cart"
 import { loginCheckFx } from "@/ctx/user"
 import { IAddProductFromLSFx, IAddProductToCartFx } from "@/types/cart"
+import { IBaseEffectProps } from "@/types/common"
 
 export const handleJWTError = async (
 	errorName: string,
@@ -24,7 +25,7 @@ export const handleJWTError = async (
 						jwt: newTokens.accessToken,
 					})
 				case 'addProductsFromLSToCartFx':
-					return addProductFromLSFx({
+					return addProductsFromLSToCart({
 						...(payload as IAddProductFromLSFx),
 						jwt: newTokens.accessToken,
 					})
@@ -33,7 +34,11 @@ export const handleJWTError = async (
 						...(payload as IAddProductToCartFx),
 						jwt: newTokens.accessToken,
 					})
-
+				case 'deleteCartItemFx':
+					return deleteCartItemFx({
+						...(payload as IBaseEffectProps),
+						jwt: newTokens.accessToken,
+					})
 				case 'loginCheckFx':
 					await loginCheckFx({
 						jwt: newTokens.accessToken,
