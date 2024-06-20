@@ -14,7 +14,7 @@ import "./globalStyles/slick.css";
 import "./globalStyles/slick-theme.css";
 import "./globalStyles/auth.css";
 import "./globalStyles/header-profile.css";
-
+import "./globalStyles/cookie-popup.css";
 
 export const metadata: Metadata = {
 	title: "Next.JS project",

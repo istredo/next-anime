@@ -6,7 +6,9 @@
       "not_found_title": "Looks like someone stole the page!",
       "ad": "Ad",
       "all_link": "All",
-      "back_to_main": "Back to main"
+      "back_to_main": "Back to main",
+      "accept": "Accept",
+      "cookie_text": "Gojo processes <a href=\"https://support.google.com/accounts/answer/61416\">Cookies</a> for the correct operation of the site and personalization of services, incl. using metric programs and analytics systems. You can prevent the processing of <a href=\"https://support.google.com/accounts/answer/61416\">Cookies</a> in your browser settings."
     },
     "header": {
       "menu_btn": "Menu",
@@ -183,7 +185,9 @@
       "not_found_title": "Кажется кто то украл страницу!",
       "ad": "Реклама",
       "all_link": "Все",
-      "back_to_main": "Вернуться на главную"
+      "back_to_main": "Вернуться на главную",
+      "accept": "Принять",
+      "cookie_text": "Годжо обрабатывает <a href=\"https://support.google.com/accounts/answer/61416\">Cookies</a> для корректной работы сайта и персонализации сервисов, в т.ч. с использованием метрических программ и систем аналитик. Вы можете запретить обработку <a href=\"https://support.google.com/accounts/answer/61416\">Cookies</a> в настройках браузера."
     },
     "header": {
       "menu_btn": "Меню",
