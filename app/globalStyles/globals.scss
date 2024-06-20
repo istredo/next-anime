@@ -268,3 +268,24 @@ body::-webkit-scrollbar-thumb:hover {
 		color: rgb(5, 92, 58);
 	}
 }
+
+.not-empty {
+	position: absolute;
+	bottom: 0%;
+	right: -3px;
+	width: 8px;
+	height: 8px;
+	background-color: #ff0c0c;
+	border-radius: 50%;
+	// z-index: -10;
+}
+
+// .not-empty-mobile {
+// 	top: 12px;
+// 	right: 15px;
+// }
+
+// .not-empty-mobile-favorite {
+// 	top: 12px;
+// 	right: 25px;
+// }

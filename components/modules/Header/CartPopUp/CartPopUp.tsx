@@ -24,7 +24,12 @@ const CartPopUp = forwardRef<HTMLDivElement, IWrappedComponentProps>(
 
 		return (
 			<div className="cart-popup" ref={ref}>
-				<Link href='/cart' className="header__links__item__btn header__links__item__btn--cart" onMouseEnter={showPopUpHandler} />
+				<Link
+					className='header__links__item__btn header__links__item__btn--cart'
+					href='/cart'
+					onMouseEnter={showPopUpHandler}>
+				</Link>
+				{!!currentCartByAuth.length && <div className='not-empty' />}
 				<AnimatePresence>
 					{open && (
 						<motion.div

@@ -1,5 +1,6 @@
 'use client'
 import { useState, ReactNode, useEffect } from 'react'
+import { Next13ProgressBar } from 'next13-progressbar'
 import { EarthoOneProvider } from '@eartho/one-client-react'
 import { useUnit } from 'effector-react'
 import { Toaster } from 'react-hot-toast'
@@ -31,6 +32,7 @@ export const PagesLayout = ({ children }: { children: ReactNode }) => {
 				<EarthoOneProvider clientId={`${process.env.NEXT_PUBLIC_OAUTH_CLIENT_ID}`} domain='test_domain' >
 					<html lang="ru">
 						<body >
+							<Next13ProgressBar height='4px' color='#008000' showOnShallow />
 							<Layout>
 								{children}
 							</Layout>

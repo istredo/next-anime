@@ -4,7 +4,6 @@ import logo from '@/public/img/logo.svg'
 
 const Logo = () => (
 	<Link className="logo" href='/'>
-
 		<Image className='logo__img' src={logo} alt="Site Logo" />
 	</Link>
 )

@@ -47,10 +47,6 @@
 	display: block;
 	position: relative;
 }
-.header__links__item__btn:hover::before {
-	transition: background-color 0.2s ease-in-out;
-	background-color: green;
-}
 .header__links__item__btn::before {
 	background-color: #e8e9ea;
 	content: "";
@@ -61,7 +57,10 @@
 	top: 0;
 	transition: background-color 0.2s ease-in-out;
 }
-
+.header__links__item__btn:hover::before {
+	transition: background-color 0.2s ease-in-out;
+	background-color: green;
+}
 .header__links__item__btn--search {
 	-webkit-masl: url(/img/search.svg) no-repeat 50% 50%;
 	mask: url(/img/search.svg) no-repeat 50% 50%;
