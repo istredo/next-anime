@@ -14,7 +14,6 @@ export async function GET(req: Request) {
 		const sort = JSON.parse(sortParam)
 
 		const getFilteredCollection = async (collection: string) => {
-			console.log(collection)
 			const goods = await db
 				.collection(collection)
 				.find()
